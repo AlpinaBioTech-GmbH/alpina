@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="Arial, Helvetica, sans-serif">
+  <rect width="900" height="480" fill="#f4f7f8"/>
+  <text x="40" y="48" font-size="26" font-weight="bold" fill="#0e2a38">The four core ELISA formats</text>
+  <text x="40" y="74" font-size="15" fill="#5b6b73">Each format positions the target analyte, capture reagent and enzyme label differently.</text>
+
+  <!-- panels -->
+  <g>
+    <!-- Direct -->
+    <rect x="40" y="110" width="180" height="320" rx="10" fill="#ffffff" stroke="#cdd8db"/>
+    <text x="130" y="140" font-size="17" font-weight="bold" fill="#0e2a38" text-anchor="middle">Direct</text>
+    <rect x="60" y="380" width="140" height="14" fill="#0e2a38"/>
+    <text x="130" y="412" font-size="12" fill="#5b6b73" text-anchor="middle">plate-bound antigen</text>
+    <rect x="95" y="335" width="70" height="45" fill="#2e8c9e"/>
+    <text x="130" y="320" font-size="12" fill="#5b6b73" text-anchor="middle">enzyme-labelled Ab</text>
+    <circle cx="130" cy="200" r="22" fill="#f2b705"/>
+    <text x="130" y="205" font-size="12" fill="#0e2a38" text-anchor="middle">signal</text>
+  </g>
+
+  <g>
+    <!-- Indirect -->
+    <rect x="240" y="110" width="180" height="320" rx="10" fill="#ffffff" stroke="#cdd8db"/>
+    <text x="330" y="140" font-size="17" font-weight="bold" fill="#0e2a38" text-anchor="middle">Indirect</text>
+    <rect x="260" y="380" width="140" height="14" fill="#0e2a38"/>
+    <text x="330" y="412" font-size="12" fill="#5b6b73" text-anchor="middle">plate-bound antigen</text>
+    <rect x="295" y="350" width="70" height="30" fill="#7fb2bf"/>
+    <text x="330" y="338" font-size="11" fill="#5b6b73" text-anchor="middle">primary Ab</text>
+    <rect x="295" y="312" width="70" height="30" fill="#2e8c9e"/>
+    <text x="330" y="300" font-size="11" fill="#5b6b73" text-anchor="middle">enzyme conjugate</text>
+    <circle cx="330" cy="200" r="22" fill="#f2b705"/>
+    <text x="330" y="205" font-size="12" fill="#0e2a38" text-anchor="middle">signal</text>
+  </g>
+
+  <g>
+    <!-- Sandwich -->
+    <rect x="440" y="110" width="180" height="320" rx="10" fill="#ffffff" stroke="#cdd8db"/>
+    <text x="530" y="140" font-size="17" font-weight="bold" fill="#0e2a38" text-anchor="middle">Sandwich</text>
+    <rect x="460" y="380" width="140" height="14" fill="#0e2a38"/>
+    <text x="530" y="412" font-size="12" fill="#5b6b73" text-anchor="middle">capture Ab</text>
+    <rect x="500" y="350" width="60" height="30" fill="#7fb2bf"/>
+    <text x="530" y="338" font-size="11" fill="#5b6b73" text-anchor="middle">analyte</text>
+    <rect x="500" y="312" width="60" height="30" fill="#2e8c9e"/>
+    <text x="530" y="300" font-size="11" fill="#5b6b73" text-anchor="middle">detection Ab</text>
+    <circle cx="530" cy="200" r="22" fill="#f2b705"/>
+    <text x="530" y="205" font-size="12" fill="#0e2a38" text-anchor="middle">signal</text>
+  </g>
+
+  <g>
+    <!-- Competitive -->
+    <rect x="640" y="110" width="220" height="320" rx="10" fill="#ffffff" stroke="#cdd8db"/>
+    <text x="750" y="140" font-size="17" font-weight="bold" fill="#0e2a38" text-anchor="middle">Competitive</text>
+    <rect x="660" y="380" width="180" height="14" fill="#0e2a38"/>
+    <text x="750" y="412" font-size="12" fill="#5b6b73" text-anchor="middle">immobilised reagent</text>
+    <rect x="690" y="340" width="55" height="30" fill="#2e8c9e"/>
+    <rect x="755" y="340" width="55" height="30" fill="#c0392b"/>
+    <text x="717" y="330" font-size="10" fill="#5b6b73" text-anchor="middle">labelled</text>
+    <text x="782" y="330" font-size="10" fill="#5b6b73" text-anchor="middle">sample</text>
+    <circle cx="750" cy="210" r="22" fill="#f2b705" opacity="0.45"/>
+    <text x="750" y="200" font-size="12" fill="#0e2a38" text-anchor="middle">signal</text>
+    <text x="750" y="232" font-size="11" fill="#5b6b73" text-anchor="middle">inverse to analyte</text>
+  </g>
+
+  <text x="40" y="466" font-size="12" fill="#90a0a6">© 2026 AlpinaBioTech GmbH — original illustration. Schematic only; not to scale.</text>
+</svg>

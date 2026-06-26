@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="Arial, Helvetica, sans-serif">
+  <rect width="900" height="480" fill="#f4f7f8"/>
+  <text x="40" y="48" font-size="26" font-weight="bold" fill="#0e2a38">Tiered anti-drug antibody (ADA) testing</text>
+  <text x="40" y="74" font-size="15" fill="#5b6b73">Samples move through tiers only if the previous tier is positive.</text>
+
+  <!-- tiers -->
+  <g>
+    <rect x="60" y="150" width="180" height="90" rx="10" fill="#ffffff" stroke="#2e8c9e" stroke-width="2"/>
+    <text x="150" y="180" font-size="16" font-weight="bold" fill="#0e2a38" text-anchor="middle">1. Screening</text>
+    <text x="150" y="205" font-size="12" fill="#5b6b73" text-anchor="middle">binding assay,</text>
+    <text x="150" y="222" font-size="12" fill="#5b6b73" text-anchor="middle">screening cut-point</text>
+  </g>
+  <g>
+    <rect x="280" y="150" width="180" height="90" rx="10" fill="#ffffff" stroke="#2e8c9e" stroke-width="2"/>
+    <text x="370" y="180" font-size="16" font-weight="bold" fill="#0e2a38" text-anchor="middle">2. Confirmatory</text>
+    <text x="370" y="205" font-size="12" fill="#5b6b73" text-anchor="middle">specificity check</text>
+    <text x="370" y="222" font-size="12" fill="#5b6b73" text-anchor="middle">(drug competition)</text>
+  </g>
+  <g>
+    <rect x="500" y="150" width="180" height="90" rx="10" fill="#ffffff" stroke="#2e8c9e" stroke-width="2"/>
+    <text x="590" y="180" font-size="16" font-weight="bold" fill="#0e2a38" text-anchor="middle">3. Titer</text>
+    <text x="590" y="205" font-size="12" fill="#5b6b73" text-anchor="middle">magnitude of</text>
+    <text x="590" y="222" font-size="12" fill="#5b6b73" text-anchor="middle">the response</text>
+  </g>
+  <g>
+    <rect x="720" y="150" width="150" height="90" rx="10" fill="#ffffff" stroke="#f2b705" stroke-width="2"/>
+    <text x="795" y="180" font-size="16" font-weight="bold" fill="#0e2a38" text-anchor="middle">4. Neutralising</text>
+    <text x="795" y="205" font-size="12" fill="#5b6b73" text-anchor="middle">functional</text>
+    <text x="795" y="222" font-size="12" fill="#5b6b73" text-anchor="middle">(NAb) assay</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#0e2a38" stroke-width="2" fill="#0e2a38">
+    <line x1="240" y1="195" x2="276" y2="195"/><polygon points="276,190 286,195 276,200"/>
+    <line x1="460" y1="195" x2="496" y2="195"/><polygon points="496,190 506,195 496,200"/>
+    <line x1="680" y1="195" x2="716" y2="195"/><polygon points="716,190 726,195 716,200"/>
+  </g>
+  <text x="258" y="185" font-size="11" fill="#1f6675" text-anchor="middle">+</text>
+  <text x="478" y="185" font-size="11" fill="#1f6675" text-anchor="middle">+</text>
+  <text x="698" y="185" font-size="11" fill="#1f6675" text-anchor="middle">+</text>
+
+  <!-- interpretation row -->
+  <rect x="60" y="300" width="810" height="90" rx="10" fill="#0e2a38" opacity="0.06"/>
+  <text x="80" y="332" font-size="14" font-weight="bold" fill="#0e2a38">Read alongside drug level</text>
+  <text x="80" y="356" font-size="13" fill="#5b6b73">Low drug + high ADA suggests immunogenic clearance; low drug + no ADA suggests under-dosing or</text>
+  <text x="80" y="376" font-size="13" fill="#5b6b73">non-immune clearance. Drug present in the sample can mask ADA detection (drug tolerance).</text>
+
+  <text x="40" y="466" font-size="12" fill="#90a0a6">© 2026 AlpinaBioTech GmbH — original illustration. Workflow concept based on standard immunogenicity practice.</text>
+</svg>

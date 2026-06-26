@@ -1,0 +1,930 @@
+{
+  "categories": [
+    {
+      "slug": "drug-elisas",
+      "name": "Drug ELISAs",
+      "kind": "functional",
+      "description": "ELISA kits for the quantitative measurement of free therapeutic drug (monoclonal antibody / fusion protein) levels in serum, plasma or other samples, for therapeutic drug monitoring (TDM)."
+    },
+    {
+      "slug": "anti-drug-antibody-elisas",
+      "name": "Anti-Drug Antibody ELISAs",
+      "kind": "functional",
+      "description": "ELISA kits for the qualitative and quantitative detection of free anti-drug antibodies (ADA) against therapeutic monoclonal antibodies in serum and plasma, for immunogenicity assessment and TDM."
+    },
+    {
+      "slug": "tnf-alpha",
+      "name": "TNF-alpha",
+      "kind": "target",
+      "description": "Kits covering TNF-alpha-targeting biologics: infliximab, adalimumab, etanercept, golimumab and certolizumab pegol (and their anti-drug antibodies)."
+    },
+    {
+      "slug": "vegf",
+      "name": "VEGF",
+      "kind": "target",
+      "description": "Kits covering VEGF-targeting biologics: bevacizumab, ranibizumab and aflibercept (and their anti-drug antibodies)."
+    },
+    {
+      "slug": "egfr",
+      "name": "EGFR",
+      "kind": "target",
+      "description": "Kits covering the EGFR-targeting biologic cetuximab (and its anti-drug antibodies)."
+    },
+    {
+      "slug": "pd-1",
+      "name": "PD-1",
+      "kind": "target",
+      "description": "Kits covering the PD-1-targeting biologic nivolumab (and its anti-drug antibodies)."
+    },
+    {
+      "slug": "her2",
+      "name": "HER2",
+      "kind": "target",
+      "description": "Kits covering the HER2-targeting biologic trastuzumab (and its anti-drug antibodies)."
+    },
+    {
+      "slug": "il-6r",
+      "name": "IL-6R",
+      "kind": "target",
+      "description": "Kits covering the IL-6 receptor-targeting biologic tocilizumab (and its anti-drug antibodies)."
+    },
+    {
+      "slug": "il-12il-23",
+      "name": "IL-12/IL-23",
+      "kind": "target",
+      "description": "Kits covering the IL-12/IL-23-targeting biologic ustekinumab (and its anti-drug antibodies)."
+    },
+    {
+      "slug": "cd20",
+      "name": "CD20",
+      "kind": "target",
+      "description": "Kits covering the CD20-targeting biologic rituximab (and its anti-drug antibodies)."
+    },
+    {
+      "slug": "ige",
+      "name": "IgE",
+      "kind": "target",
+      "description": "Kits covering the IgE-targeting biologic omalizumab (and its anti-drug antibodies)."
+    },
+    {
+      "slug": "alpha-4-beta-7-integrins",
+      "name": "Alpha-4-Beta-7-Integrins",
+      "kind": "target",
+      "description": "Kits covering the alpha-4-beta-7 integrin-targeting biologic vedolizumab (and its anti-drug antibodies)."
+    }
+  ],
+  "products": [
+    {
+      "slug": "etanercept-elisa",
+      "name": "ETANERCEPT ELISA",
+      "analyte": "Etanercept",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the quantitative determination of free Etanercept (Enbrel®) in serum and plasma.The solid phase (MTP) is coated by the target molecule, in this case TNF-alpha. Required Volume (µL) 10 Incubation Time (min) 105 Sample Serum or Plasma Plate Size 96 Tests Standard Range (ng/mL, 10x) 0-2000 Detection Limit (ng/mL) 5 Spike Recovery (%) >95 Shelf Life (years) 2 Enbrel® is a trademark of Amgen.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "5 ng/mL (standard range 0-2000 ng/mL)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (Enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AA102",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/etanercept-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-omalizumab-elisa",
+      "name": "ANTIBODY TO OMALIZUMAB ELISA",
+      "analyte": "Omalizumab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "ige"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Omalizumab (Xolair®) in serum and plasma.The solid phase (MTP) is coated by the drug Omalizumab. Due to the assay design this test measures the free antibodies which are not bound to Omalizumab. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL). Required Volume (µL) 50 Incubation Time (min) 135 Sample Serum/Plasma Plate Size 96 Tests Results in Qualitative & Quantitative (ng/mL) Shelf Life (years) 2 Intended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Xolair® is a trademark of Genentech Inc.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": null,
+        "sample_type": "Serum/Plasma",
+        "format": "ELISA (Enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "BB111",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-omalizumab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "trastuzumab-elisa-mab-based",
+      "name": "TRASTUZUMAB ELISA (MAB-BASED)",
+      "analyte": "Trastuzumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "her2"
+      ],
+      "description": "Enzyme immunoassay for the quantitative determination of free Trastuzumab (Herceptin®, Herclon®) in serum and plasma.The solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Trastuzumab. Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded. Required Volume (µL) 10 Incubation Time (min) 100 Sample Serum or Plasma Plate Size 96 Tests Standard Range (ng/mL, 10x) 0-2000 Detection Limit (ng/mL) 5 Spike Recovery (%) >95 Shelf Life (years) 2 Intended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Herceptin® and Herclon® are trademarks Genentech Inc.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "5 ng/mL (standard range 0-2000 ng/mL)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (Enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AB105",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/trastuzumab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-bevacizumab-elisa",
+      "name": "ANTIBODY TO BEVACIZUMAB ELISA",
+      "analyte": "Bevacizumab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "vegf"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Bevacizumab (Avastin®) in serum and plasma.The solid phase (MTP) is coated by the drug Bevacizumab. Due to the assay design this test measures the free antibodies which are not bound to Bevacizumab. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL). Required Volume (µL) 50 Incubation Time (min) 135 Sample Serum/Plasma Plate Size 96 Tests Results in Qualitative & Quantitative (ng/mL) Shelf Life (years) 2 Intended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Avastin® is a trademark of Genentech Inc./Roche.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": null,
+        "sample_type": "Serum/Plasma",
+        "format": "ELISA (Enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "BB104",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-bevacizumab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "golimumab-elisa-mab-based",
+      "name": "GOLIMUMAB ELISA (MAB-BASED)",
+      "analyte": "Golimumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Golimumab (Simponi®) in serum and plasma.The solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Golimumab. Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded. Required Volume (µL) 10 Incubation Time (min) 100 Sample Serum or Plasma Package Size 96 Tests Standard Range (ng/mL, 10x) 0-1500 Sensitivity (ng/mL) 4 Spike Recovery (%) >95 Shelf Life (years) 2 Intended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Simponi® is a trademark of Janssen Biotech, Inc./Merck & Co.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "4 ng/mL (standard range 0-1500 ng/mL)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (Enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AB107",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/golimumab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "omalizumab-elisa-mab-based",
+      "name": "OMALIZUMAB ELISA (MAB-BASED)",
+      "analyte": "Omalizumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "ige"
+      ],
+      "description": "Enzyme immunoassay for the specific quantitative determination of free Omalizumab (Xolair®) in serum and plasma.The solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Omalizumab. Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded. Required Volume (µL) 10 Incubation Time (min) 100 Sample Serum or Plasma Plate Size 96 Tests Standard Range (ng/mL, 10x) 0-1000 Detection Limit (ng/mL) 2 Spike Recovery (%) >95 Shelf Life (years) 2 Intended Use: This kit has been developed for the measurement of drug levels in research, diagnostic and biosimilar uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Xolair® is a trademark of Genentech Inc.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "2 ng/mL (standard range 0-1000 ng/mL)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (Enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AB111",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/omalizumab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "tocilizumab-elisa-mab-based",
+      "name": "TOCILIZUMAB ELISA (MAB-BASED)",
+      "analyte": "Tocilizumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "il-6r"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Tocilizumab (Actemra®) in serum and plasma.The solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Tocilizumab. Another POD-labelled specific monoclonal antibody is used as conjugate.Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded. Required Volume (µL) 10 Incubation Time (min) 130 Sample Serum or Plasma Plate Size 96 Standard Range (ng/mL, 10x) 0-2000 Detection Limit (ng/mL) 5 Spike Recovery (%) >95 Shelf Life (years) 2 Intended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "5 ng/mL (standard range 0-2000 ng/mL)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (Enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AB108",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/tocilizumab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "tocilizumab-antibody-elisa-kit",
+      "name": "INFLIXIMAB ELISA",
+      "analyte": "Infliximab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the quantitative determination of free Infliximab (Remicade®, Remsima®) in serum and plasma.The solid phase (MTP) is coated by the target molecule, in this case TNF-alpha. Required Volume (µL) 10 Incubation Time (min) 105 Sample Serum or Plasma Plate Size 96 Standard Range (ng/mL, 10x) 0-2000 Detection Limit (ng/mL) 5 Spike Recovery (%) >95 Shelf Life (years) 2 Intended Use: This kit has been developed for the measurement of drug levels in research, diagnostic and biosimilar uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Remicade® is a trademark of Janssen Biotech, Inc./Merck & Co.Remsima® is a trademark of CellTrion Inc.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "5 ng/mL (standard range 0-2000 ng/mL)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (Enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AA101",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/tocilizumab-antibody-elisa-kit",
+      "scraped": true,
+      "note": "slug mismatch: page serves INFLIXIMAB ELISA (SKU AA101) despite tocilizumab-antibody slug"
+    },
+    {
+      "slug": "golimumab-elisa",
+      "name": "GOLIMUMAB ELISA",
+      "analyte": "Golimumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the quantitative determination of free Golimumab (Simponi®) in serum and plasma.The solid phase (MTP) is coated by the target molecule, in this case TNF-alpha. Required Volume (µL) 10 Incubation Time (min) 105 Sample Serum or Plasma Package Size 96 Tests Standard Range (ng/mL, 10x) 0-2000 Detection Limit (ng/mL) 5 Spike Recovery (%) >95 Shelf Life (years) 2 Intended Use: This kit has been developed for the measurement of drug levels in research, diagnostic and biosimilar uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Simponi® is a trademark of Janssen Biotech, Inc./Merck & Co.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "5 ng/mL (standard range 0-2000 ng/mL)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (Enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AA107",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/golimumab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "nivolumab-elisa-mab-based",
+      "name": "NIVOLUMAB ELISA (MAB-BASED)",
+      "analyte": "Nivolumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "pd-1"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Nivolumab (Opdivo®) in serum and plasma.The solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Nivolumab. Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded. Required Volume (µL) 10 Incubation Time (min) 105 Sample Serum or Plasma Package Size 96 Tests Standard Range (ng/mL, 10x) 0-6000 Detection Limit (ng/mL) 15 Spike Recovery (%) >95 Shelf Life (years) 2 Intended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Opdivo® is a trademark of Bristol-Myers Squibb Company.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "15 ng/mL (standard range 0-6000 ng/mL)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (Enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AB113",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/nivolumab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "aflibercept-elisa",
+      "name": "AFLIBERCEPT ELISA",
+      "analyte": "Aflibercept",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "vegf"
+      ],
+      "description": "Enzyme immunoassay for the quantitative determination of free Aflibercept (Eylea®, Zaltrap®) in serum and plasma.\nThe solid phase (MTP) is coated by the target molecule, in this case VEGF.\n Required Volume (µL): 10 \n Incubation Time (min): 105 \n Sample: Serum or Plasma \n Plate Size: 96 Tests \n Standard Range (ng/mL, 10x): 0-2000 \n Detection Limit (ng/mL): 5 \n Spike Recovery (%): >95 \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the measurement of drug levels in research, diagnostic and biosimilar uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nEylea® is a trademark of Bayer.\nZaltrap® is a trademark of Sanofi Genzyme.",
+      "price": "0,00€ (EUR)",
+      "specs": {
+        "sensitivity": "Detection Limit 5 ng/mL (range 0-2000)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AA115",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/aflibercept-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-trastuzumab-elisa",
+      "name": "ANTIBODY TO TRASTUZUMAB ELISA",
+      "analyte": "Trastuzumab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "her2"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Trastuzumab (Herceptin®, Herclon®) in serum and plasma.\nThe solid phase (MTP) is coated by the drug Trastuzumab. Due to the assay design this test measures the free antibodies which are not bound to Trastuzumab. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL).\n Required Volume (µL): 50 \n Incubation Time (min): 165 \n Sample: Serum/Plasma \n Package Size: 96 Tests \n Results in: Qualitative & Quantitative (ng/mL) \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nHerceptin® and Herclon® are trademarks Genentech Inc.",
+      "price": "0,00€ (EUR)",
+      "specs": {
+        "sensitivity": "Detection Threshold 15 ng/mL",
+        "sample_type": "Serum/Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "BB105",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-trastuzumab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-adalimumab-elisa",
+      "name": "ANTIBODY TO ADALIMUMAB ELISA",
+      "analyte": "Adalimumab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Adalimumab (Humira®) in serum and plasma.\nThe solid phase (MTP) is coated by the drug Adalimumab. Due to the assay design this test measures the free antibodies which are not bound to Adalimumab. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL).\n Required Volume (µL): 50 \n Incubation Time (min): 135 \n Sample: Serum, Plasma \n Package Size: 96 \n Results in: Qualitative & Quantitative (ng/mL) \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nHumira® is trademark of Abbott Laboratories.",
+      "price": "0,00€ (EUR)",
+      "specs": {
+        "sensitivity": "Detection Threshold 2,5 ng/mL",
+        "sample_type": "Serum, Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96",
+        "sku": "BB103",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-adalimumab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-ustekinumab-elisa",
+      "name": "ANTIBODY TO USTEKINUMAB ELISA",
+      "analyte": "Ustekinumab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "il-12il-23"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Ustekinumab (Stelara®) in serum and plasma.\nThe solid phase (MTP) is coated by the drug Ustekinumab. Due to the assay design this test measures the free antibodies which are not bound to Ustekinumab. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL).\n Required Volume (µL): 50 \n Incubation Time (min): 135 \n Sample: Serum/Plasma \n Plate Size: 96 Tests \n Results in: Qualitative & Quantitative (ng/mL) \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nStelara® is a trademark of Janssen Biotech.",
+      "price": "0,00€ (EUR)",
+      "specs": {
+        "sensitivity": null,
+        "sample_type": "Serum/Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "BB121",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-ustekinumab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "cetuximab-elisa-mab-based",
+      "name": "CETUXIMAB ELISA (MAB-BASED)",
+      "analyte": "Cetuximab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "egfr"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Cetuximab (Erbitux®) in serum and plasma.\nThe solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Cetuximab. Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded.\n Required Volume (µL): 10 \n Incubation Time (min): 100 \n Sample: Serum or Plasma \n Plate Size: 96 Tests \n Standard Range (ng/mL, 10x): 0-2000 \n Detection Limit (ng/mL): 5 \n Spike Recovery (%): >95 \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nErbitux® is a trademark of ImClone LLC.",
+      "price": "0,00€ (EUR)",
+      "specs": {
+        "sensitivity": "Detection Limit 5 ng/mL (range 0-2000)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AB112",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/cetuximab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-golimumab-elisa",
+      "name": "ANTIBODY TO GOLIMUMAB ELISA",
+      "analyte": "Golimumab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Golimumab (Simponi®) in serum and plasma.\nThe solid phase (MTP) is coated by the drug Golimumab. Due to the assay design this test measures the free antibodies which are not bound to Golimumab. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL).\n Required Volume (µL): 50 \n Incubation Time (min): 135 \n Sample: Serum/Plasma \n Plate Size: 96 Tests \n Results in: Qualitative & Quantitative (ng/mL) \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nSimponi® is a trademark of Janssen Biotech, Inc./Merck & Co.",
+      "price": "0,00€ (EUR)",
+      "specs": {
+        "sensitivity": "Detection Threshold 2 ng/mL",
+        "sample_type": "Serum/Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "BB107",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-golimumab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "adalimumab-elisa-mab-based",
+      "name": "ADALIMUMAB ELISA (MAB-BASED)",
+      "analyte": "Adalimumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Adalimumab (Humira®) in serum and plasma.\nThe solid phase (MTP) is coated with a highly specific monoclonal antibody against Adalimumab.\nTherefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded.\n Required Volume (µL): 10 \n Incubation Time (min): 105 \n Sample: Serum or Plasma \n Plate Size: 96 Tests \n Standard Range (ng/mL, 10x): 0-1500 \n Sensitivity (ng/mL): 3 \n Spike Recovery (%): >95 \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nHumira® is a trademark of Abbott Laboratories.",
+      "price": "0,00€ (EUR)",
+      "specs": {
+        "sensitivity": "Sensitivity 3 ng/mL",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AB103",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/adalimumab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "total-antibody-to-infliximab",
+      "name": "TOTAL ANTIBODY TO INFLIXIMAB",
+      "analyte": "Infliximab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the semi-quantitative determination of total (free and drug-bound) antibodies to Infliximab (Remicade®, Remsima®) in serum and plasma.\nDue to the specific assay design this test measures the antibodies against Infliximab even in a high excess of the drug (up to 20-fold). Results are expressed in tAU (total arbitrary units).\n Required Volume (µL): 20 \n Incubation Time (min): 75 \n Sample: Serum or Plasma \n Plate Size: 96 Tests \n Results in: Total Arbitrary Units (tAU/mL) \n Cut-Off (tAU/mL): 10 \n Detection Limit (tAU/mL): 10 \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the detection of total level of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nRemicade® is a trademark of Janssen Biotech, Inc./Merck & Co.\nRemsima® is a trademark of CellTrion Inc.",
+      "price": "0,00€ (EUR)",
+      "specs": {
+        "sensitivity": "Detection Limit 10 ng/mL",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "TA101",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/total-antibody-to-infliximab",
+      "scraped": true
+    },
+    {
+      "slug": "infliximab-elisa-mab-based",
+      "name": "INFLIXIMAB ELISA (MAB-BASED)",
+      "analyte": "Infliximab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Infliximab (Remicade®, Remsima®) in human serum and plasma.\nThe solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Infliximab. Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded.\n Required Volume (µL): 10 \n Incubation Time (min): 100 \n Sample: Serum or Plasma \n Plate Size: 96 \n Standard Range (ng/mL, 10x): 0-1500 \n Sensitivity (ng/mL): 3 \n Spike Recovery (%): >95 \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nRemicade® is a trademark of Janssen Biotech, Inc./Merck & Co.\nRemsima® is a trademark of CellTrion Inc.",
+      "price": "0,00€ (EUR)",
+      "specs": {
+        "sensitivity": "Sensitivity 3 ng/mL",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96",
+        "sku": "AB101",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/infliximab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "rituximab-elisa-mab-based",
+      "name": "RITUXIMAB ELISA (MAB-BASED)",
+      "analyte": "Rituximab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "cd20"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Rituximab (Rituxan®, Mabthera®) in serum and plasma.\nThe solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Rituximab. Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded.\n Required Volume (µL): 10 \n Incubation Time (min): 100 \n Sample: Serum or Plasma \n Plate Size: 96 Tests \n Standard Range (ng/mL, 10x): 0-2000 \n Detection Limit (ng/mL): 5 \n Spike Recovery (%): >95 \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nRituxan® and Mabthera® are trademarks of Biogen Idec/Genentech Inc.",
+      "price": "0,00€ (EUR)",
+      "specs": {
+        "sensitivity": "Detection Limit 5 ng/mL (range 0-2000)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AB106",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/rituximab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "infliximab-elisa-mab-based-1",
+      "name": "ANTIBODY TO INFLIXIMAB ELISA",
+      "analyte": "Infliximab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Infliximab (Remicade®, Remsima®) in serum and plasma. The solid phase (MTP) is coated by the drug Infliximab. Due to the assay design this test measures the free antibodies which are not bound to Infliximab. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL). Required Volume (µL): 50; Incubation Time (min): 135; Sample: Serum/Plasma; Plate Size: 96 Tests; Results in: Qualitative & Quantitative (ng/mL); Shelf Life (years): 2. Intended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Remicade® is a trademark of Janssen Biotech, Inc./Merck & Co. Remsima® is a trademark of CellTrion Inc.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": null,
+        "sample_type": "Serum/Plasma",
+        "format": "ELISA (drug-coated solid phase, MTP); Qualitative & Quantitative (ng/mL)",
+        "tests": "96 Tests",
+        "sku": "BB101",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/infliximab-elisa-mab-based-1",
+      "scraped": true
+    },
+    {
+      "slug": "trastuzumab-elisa",
+      "name": "TRASTUZUMAB ELISA",
+      "analyte": "Trastuzumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "her2"
+      ],
+      "description": "Enzyme immunoassay for the quantitative determination of free Trastuzumab (Herceptin®, Herclon®) in serum and plasma. The solid phase (MTP) is coated by the target molecule, in this case HER2/neu receptor. Required Volume (µL): 10; Incubation Time (min): 110; Sample: Serum or Plasma; Package Size: 96 Tests; Standard Range (ng/mL, 10x): 0-2000; Detection Limit (ng/mL): 5; Spike Recovery (%): >95; Shelf Life (years): 2. Intended Use: This kit has been developed for the measurement of drug levels in research, diagnostic and biosimilar uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Herceptin® and Herclon® are trademarks Genentech Inc",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Detection Limit 5 ng/mL",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (target-coated solid phase, MTP); Standard Range 0-2000 ng/mL (10x)",
+        "tests": "96 Tests",
+        "sku": "AA105",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/trastuzumab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "ustekinumab-elisa-mab-based",
+      "name": "USTEKINUMAB ELISA (MAB-BASED)",
+      "analyte": "Ustekinumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "il-12il-23"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Ustekinumab (Stelara®) in serum and plasma. The solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Ustekinumab. Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded. Required Volume (µL): 10; Incubation Time (min): 135; Sample: Serum or Plasma; Package Size: 96 Tests; Standard Range (ng/mL, 10x): 0-1000; Detection Limit (ng/mL): 2; Spike Recovery (%): >95; Shelf Life (years): 2. Intended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Stelara® is a trademark of Janssen Biotech.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Detection Limit 2 ng/mL",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (mAb-based, specific monoclonal-coated MTP); Standard Range 0-1000 ng/mL (10x)",
+        "tests": "96 Tests",
+        "sku": "AB121",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/ustekinumab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "bevacizumab-elisa-mab-based",
+      "name": "BEVACIZUMAB ELISA (MAB-BASED)",
+      "analyte": "Bevacizumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "vegf"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Bevacizumab (Avastin) in serum and plasma. The solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Bevacizumab. Therefore any cross reactivity to the other therapeutical monoclonal antibodies, even with its 5 pointmutation Fab counterpart (Ranibizumab) is excluded. Required Volume (µL): 10; Incubation Time (min): 100; Sample: Serum or Plasma; Plate Size: 96 Tests; Standard Range (µg/mL, 1000x): 0-200; Detection Limit (ng/mL): 5; Spike Recovery (%): >95%; Shelf Life (years): 2. Intended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Avastin® is a trademark of Genentech Inc./Roche.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Detection Limit 5 ng/mL",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (mAb-based, specific monoclonal-coated MTP); Standard Range 0-200 µg/mL (1000x)",
+        "tests": "96 Tests",
+        "sku": "AB104",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/bevacizumab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "adalimumab-elisa",
+      "name": "ADALIMUMAB ELISA",
+      "analyte": "Adalimumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the quantitative determination of free Adalimumab (Humira®) in serum and plasma. The solid phase (MTP) is coated by the target molecule, in this case TNF-alpha. Required Volume (µL): 10; Incubation Time (min): 105; Sample: Serum or Plasma; Plate Size: 96 Tests; Standard Range (ng/mL, 10x): 0-2000; Detection Limit (ng/mL): 5; Spike Recovery (%): >95; Shelf Life (years): 2. Intended Use: This kit has been developed for the measurement of drug levels in research, diagnostic and biosimilar uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Humira® is a trademark of Abbott Laboratories",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Detection Limit 5 ng/mL",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (target-coated solid phase, MTP); Standard Range 0-2000 ng/mL (10x)",
+        "tests": "96 Tests",
+        "sku": "AA103",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/adalimumab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-rituximab-elisa",
+      "name": "ANTIBODY TO RITUXIMAB ELISA",
+      "analyte": "Rituximab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "cd20"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Rituximab (Rituxan®, Mabthera®) in serum and plasma. The solid phase (MTP) is coated by the drug Rituximab. Due to the assay design this test measures the free antibodies which are not bound to Rituximab. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL). Required Volume (µL): 50; Incubation Time (min): 135; Sample: Serum/Plasma; Plate Size: 96 Tests; Results in: Qualitative & Quantitative (ng/mL); Shelf Life (years): 2. Intended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Rituxan® and Mabthera® are trademarks of Biogen Idec/Genentech Inc",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": null,
+        "sample_type": "Serum/Plasma",
+        "format": "ELISA (drug-coated solid phase, MTP); Qualitative & Quantitative (ng/mL)",
+        "tests": "96 Tests",
+        "sku": "BB106",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-rituximab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "certolizumab-pegol-elisa-mab-based",
+      "name": "CERTOLIZUMAB PEGOL ELISA (MAB-BASED)",
+      "analyte": "Certolizumab Pegol",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Certolizumab Pegol (Cimzia®) in serum and plasma. The solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Certolizumab Pegol. Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded. Required Volume (µL): 10; Incubation Time (min): 165; Sample: Serum or Plasma; Plate Size: 96 Tests; Standard Range (µg/mL, 500x): 0-100; Detection Limit (ng/mL): 5; Spike Recovery (%): >95; Shelf Life (years): 2. Intended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Cimzia® is a trademark of UCB.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Detection Limit 5 ng/mL",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (mAb-based, specific monoclonal-coated MTP); Standard Range 0-100 µg/mL (500x)",
+        "tests": "96 Tests",
+        "sku": "AB109",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/certolizumab-pegol-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-etanercept-elisa",
+      "name": "ANTIBODY TO ETANERCEPT ELISA",
+      "analyte": "Etanercept",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Etanercept (Enbrel®) in serum and plasma. The solid phase (MTP) is coated by the drug Etanercept. Due to the assay design this test measures the free antibodies which are not bound to Etanercept. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL). Required Volume (µL): 50; Incubation Time (min): 135; Sample: Serum, Plasma; Package Size: 96; Results in: Qualitative & Quantitative (ng/mL); Shelf Life (years): 2. Intended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Enbrel® is a trademark of Amgen.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": null,
+        "sample_type": "Serum, Plasma",
+        "format": "ELISA (drug-coated solid phase, MTP); Qualitative & Quantitative (ng/mL)",
+        "tests": "96",
+        "sku": "BB102",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-etanercept-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-tocilizumab-elisa",
+      "name": "ANTIBODY TO TOCILIZUMAB ELISA",
+      "analyte": "Tocilizumab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "il-6r"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Tocilizumab (Actemra®) in serum and plasma. The solid phase (MTP) is coated by the drug Tocilizumab. Due to the assay design this test measures the free antibodies which are not bound to Tocilizumab. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL). Required Volume (µL): 50; Incubation Time (min): 135; Sample: Serum or Plasma; Plate Size: 96 Tests; Results in: Qualitative & Quantitative (ng/mL); Shelf Life (years): 2. Intended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes. Actemra® is a trademark of Chugai Seiyaku Kabushiki Kaisha Corp.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": null,
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (drug-coated solid phase, MTP); Qualitative & Quantitative (ng/mL)",
+        "tests": "96 Tests",
+        "sku": "BB108",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-tocilizumab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-cetuximab-elisa",
+      "name": "ANTIBODY TO CETUXIMAB ELISA",
+      "analyte": "Cetuximab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "egfr"
+      ],
+      "description": "Enzyme immunoassay for quantitative and qualitative determination of free antibodies to Cetuximab (Erbitux®) in serum and plasma.\nThe solid phase (MTP) is coated by the drug Cetuximab. Due to the assay design this test measures the free antibodies which are not bound to Cetuximab. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL).\n Required Volume (µL): 50 \n Incubation Time (min): 135 \n Sample: Serum/Plasma \n Plate Size: 96 Tests \n Results in: Qualitative & Quantitative (ng/mL) \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nErbitux® is a trademark of ImClone LLC.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Detection Threshold 0,75 ng/mL",
+        "sample_type": "Serum/Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "BB112",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-cetuximab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "vedolizumab-elisa-mab-based",
+      "name": "VEDOLIZUMAB ELISA (MAB-BASED)",
+      "analyte": "Vedolizumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "alpha-4-beta-7-integrins"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Vedolizumab (Entyvio®) in serum and plasma.\nThe solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Vedolizumab. Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded.\n Required Volume (µL): 10 \n Incubation Time (min): 105 \n Sample: Serum or Plasma \n Plate Size: 96 Tests \n Sensitivity (ng/mL, 10x): 0-1000 \n Detection Limit (ng/mL): 2 \n Spike Recovery (%): >95 \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nEntyvio® is a trademark of Takeda Pharmaceuticals Inc.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Detection Limit 2 ng/mL (range 0-1000 ng/mL, 10x)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AB116",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/vedolizumab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "bevacizumab-elisa",
+      "name": "BEVACIZUMAB ELISA",
+      "analyte": "Bevacizumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "vegf"
+      ],
+      "description": "Enzyme immunoassay for the quantitative determination of free Bevacizumab (Avastin®) in serum and plasma.\nThe solid phase (MTP) is coated by the target molecule, in this case VEGF.\n Required Volume (µL): 10 \n Incubation Time (min): 105 \n Sample: Serum or Plasma \n Plate Size: 96 Tests \n Standard Range (µg/mL, 1000x): 0-200 \n Sensitivity (ng/mL): 5 \n Spike Recovery (%): >95 \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the measurement of drug levels in research, diagnostic and biosimilar uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nAvastin® is a trademark of Genentech Inc./Roche.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Sensitivity 5 ng/mL (range 0-200 µg/mL, 1000x)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AA104",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/bevacizumab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-certolizumab-pegol-elisa",
+      "name": "ANTIBODY TO CERTOLIZUMAB PEGOL ELISA",
+      "analyte": "Certolizumab Pegol",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Certolizumab Pegol (Cimzia®) in serum and plasma.\nThe solid phase (MTP) is coated by the drug Certolizumab Pegol. Due to the assay design this test measures the free antibodies which are not bound to Certolizumab Pegol. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL).\n Required Volume (µL): 50 \n Incubation Time (min): 135 \n Sample: Serum, Plasma \n Plate Size: 96 \n Results in: Qualitative & Quantitative (ng/mL) \n Shelf Life (years): 2 \nCimzia® is a trademark of UCB.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Detection Threshold 20 ng/mL",
+        "sample_type": "Serum, Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96",
+        "sku": "BB109",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-certolizumab-pegol-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "etanercept-elisa-mab-based",
+      "name": "ETANERCEPT ELISA (MAB-BASED)",
+      "analyte": "Etanercept",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "tnf-alpha"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Etanercept (Enbrel®) in serum and plasma.\nThe solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Etanercept. Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded.\n Required Volume (µL): 10 \n Incubation Time (min): 100 \n Sample: Serum or Plasma \n Plate Size: 96 Tests \n Standard Range (ng/mL, 10x): 0-2000 \n Detection Limit (ng/mL): 5 \n Spike Recovery (%): >95 \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nEnbrel® is a trademark of Amgen.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Detection Limit 5 ng/mL (range 0-2000 ng/mL, 10x)",
+        "sample_type": "Serum or Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AB102",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/etanercept-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "ranibizumab-elisa-mab-based",
+      "name": "RANIBIZUMAB ELISA (MAB-BASED)",
+      "analyte": "Ranibizumab",
+      "product_type": "drug ELISA",
+      "category_slugs": [
+        "drug-elisas",
+        "vegf"
+      ],
+      "description": "Enzyme immunoassay for the specific and quantitative determination of free Ranibizumab (Lucentis®) in aqueous humour.\nThe solid phase (MTP) is coated by a highly specific monoclonal antibody directed against Ranibizumab. Therefore any cross reactivity to the other therapeutical monoclonal antibodies is excluded except for Bevacizumab.\n Required Volume (µL): 5 \n Incubation Time (min): 135 \n Sample: aqueous humour \n Plate Size: 96 Tests \n Standard Range (ng/mL, 10x): 0-300 \n Detection Limit (ng/mL): 0,33 \n Spike Recovery (%): >95 \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the measurement of drug levels in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nLucentis® is a trademark of ©2018 Genentech USA, Inc.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Detection Limit 0,33 ng/mL (range 0-300 ng/mL, 10x)",
+        "sample_type": "aqueous humour",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "AB110a",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/ranibizumab-elisa-mab-based",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-vedolizumab-elisa",
+      "name": "ANTIBODY TO VEDOLIZUMAB ELISA",
+      "analyte": "Vedolizumab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "alpha-4-beta-7-integrins"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Vedolizumab (Entyvio®) in serum and plasma.\nThe solid phase (MTP) is coated by the drug Vedolizumab. Due to the assay design this test measures the free antibodies which are not bound to Vedolizumab. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL).\n Required Volume (µL): 50 \n Incubation Time (min): 135 \n Sample: Serum/Plasma \n Plate Size: 96 Tests \n Results in: Qualitative & Quantitative (ng/mL) \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nEntyvio® is a trademark of Takeda Pharmaceuticals Inc.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Detection Threshold 2,5 ng/mL",
+        "sample_type": "Serum/Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "BB116",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-vedolizumab-elisa",
+      "scraped": true
+    },
+    {
+      "slug": "antibody-to-nivolumab-elisa",
+      "name": "ANTIBODY TO NIVOLUMAB ELISA",
+      "analyte": "Nivolumab",
+      "product_type": "ADA ELISA",
+      "category_slugs": [
+        "anti-drug-antibody-elisas",
+        "pd-1"
+      ],
+      "description": "Enzyme immunoassay for the quantitative and qualitative determination of free antibodies to Nivolumab (Opdivo®) in serum and plasma.\nThe solid phase (MTP) is coated by the drug Nivolumab. Due to the assay design this test measures the free antibodies which are not bound to Nivolumab. Results could be expressed in both qualitative and quantitative manner (nanogram per mililiter-ng/mL).\n Required Volume (µL): 50 \n Incubation Time (min): 135 \n Sample: Serum/Plasma \n Plate Size: 96 Tests \n Results in: Qualitative & Quantitative (ng/mL) \n Shelf Life (years): 2 \nIntended Use: This kit has been developed for the detection of anti-drug antibodies in research and diagnostic uses. It is suitable for Therapeutical Drug Monitoring (TDM) purposes.\nOpdivo® is a trademark of Bristol Myers Squibb Company.",
+      "price": "0,00€",
+      "specs": {
+        "sensitivity": "Detection Threshold 5 ng/mL",
+        "sample_type": "Serum/Plasma",
+        "format": "ELISA (enzyme immunoassay)",
+        "tests": "96 Tests",
+        "sku": "BB113",
+        "regulatory": "RuO - Research Use Only"
+      },
+      "image_url": "https://static.wixstatic.com/media/a87ace_e8338974eb0e45e9b9c06293bafac645~mv2.jpg/v1/fit/w_500,h_500,q_90/file.jpg",
+      "source_url": "https://www.alpinabiotech.com/product-page/antibody-to-nivolumab-elisa",
+      "scraped": true
+    }
+  ]
+}

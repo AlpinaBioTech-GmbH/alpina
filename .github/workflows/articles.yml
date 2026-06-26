@@ -1,0 +1,80 @@
+# Article pipeline: RSS leads / pending opinion topics -> writer (web research)
+# -> editor review -> revision loop -> Storyblok publish -> best-effort social.
+#
+# A full run takes ~10-20 minutes (well past Vercel's serverless limit), so it
+# runs here. The pipeline logs every run to the pipeline_runs table, so /admin
+# reflects the outcome.
+#
+# Required GitHub Secrets (Settings -> Secrets and variables -> Actions):
+#   ANTHROPIC_API_KEY              - Anthropic API key (writer/editor + web search)
+#   STORYBLOK_MANAGEMENT_TOKEN     - Storyblok management API token (publish)
+#   STORYBLOK_SPACE_ID             - Storyblok space id
+#   NEXT_PUBLIC_STORYBLOK_TOKEN    - Storyblok public CDN token (recent titles)
+#   NEXT_PUBLIC_SUPABASE_URL       - Supabase project URL
+#   SUPABASE_SECRET_KEY            - Supabase secret key (sb_secret_..., bypasses RLS)
+# Optional:
+#   PEXELS_API_KEY     - stock cover images (no key => articles publish without a cover)
+#   ANTHROPIC_BASE_URL (secret, only if a gateway is used)
+#   IG_SLIDE_SIGNING_SECRET - MUST match Vercel's value; signs the /api/ig/slide
+#                             URLs the Instagram announce step fetches (else 401)
+#   RESEND_API_KEY     - operator failure alerts (no key => failures only logged)
+#   SOCIAL_OPERATOR_EMAIL (secret or variable) - alert recipient
+#   NEXT_PUBLIC_SITE_URL (variable) - used for catalog/link validation + slide signing
+#   WRITER_MODEL / EDITOR_MODEL / MAX_ARTICLE_REVISIONS (repository variables)
+#
+# Triggered by: the schedule below, the admin "Run article pipeline now" button
+# (workflow_dispatch via the GitHub API), or the Actions tab.
+
+name: Articles - pipeline
+
+on:
+  schedule:
+    # Mondays, Wednesdays, Fridays at 13:00 UTC. Adjust to taste.
+    - cron: '0 13 * * 1,3,5'
+  workflow_dispatch:
+
+# One run at a time; queue (don't cancel) if a manual dispatch overlaps the cron.
+concurrency:
+  group: articles-pipeline
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          # Node 22+ for native global WebSocket: the Supabase client's realtime
+          # transport throws on Node 20, which would break pipeline_runs logging.
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run article pipeline
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
+          STORYBLOK_MANAGEMENT_TOKEN: ${{ secrets.STORYBLOK_MANAGEMENT_TOKEN }}
+          STORYBLOK_SPACE_ID: ${{ secrets.STORYBLOK_SPACE_ID }}
+          NEXT_PUBLIC_STORYBLOK_TOKEN: ${{ secrets.NEXT_PUBLIC_STORYBLOK_TOKEN }}
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+          NEXT_PUBLIC_SITE_URL: ${{ vars.NEXT_PUBLIC_SITE_URL }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          # Must equal Vercel's value, or the Instagram announce step 401s.
+          IG_SLIDE_SIGNING_SECRET: ${{ secrets.IG_SLIDE_SIGNING_SECRET }}
+          # Lets the announce step email the operator when a social post fails.
+          RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+          SOCIAL_OPERATOR_EMAIL: ${{ secrets.SOCIAL_OPERATOR_EMAIL }}
+          WRITER_MODEL: ${{ vars.WRITER_MODEL }}
+          EDITOR_MODEL: ${{ vars.EDITOR_MODEL }}
+          MAX_ARTICLE_REVISIONS: ${{ vars.MAX_ARTICLE_REVISIONS }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then ARGS="--manual"; fi
+          npx tsx scripts/run-article-pipeline.ts $ARGS

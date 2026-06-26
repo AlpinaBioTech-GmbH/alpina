@@ -1,0 +1,7 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev:http",
+  "installCommand": "npm install",
+  "crons": [{ "path": "/api/cron/post-social", "schedule": "0 14 * * *" }]
+}

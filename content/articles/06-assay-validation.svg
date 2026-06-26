@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="Arial, Helvetica, sans-serif">
+  <rect width="900" height="480" fill="#f4f7f8"/>
+  <text x="40" y="48" font-size="26" font-weight="bold" fill="#0e2a38">Fit-for-purpose validation of an immunoassay</text>
+  <text x="40" y="74" font-size="15" fill="#5b6b73">A calibration curve is only trustworthy once the core parameters are characterised.</text>
+
+  <!-- calibration curve -->
+  <line x1="90" y1="400" x2="470" y2="400" stroke="#0e2a38" stroke-width="2"/>
+  <line x1="90" y1="120" x2="90" y2="400" stroke="#0e2a38" stroke-width="2"/>
+  <text x="70" y="125" font-size="12" fill="#5b6b73" text-anchor="end">signal</text>
+  <text x="465" y="425" font-size="12" fill="#5b6b73" text-anchor="end">concentration (log)</text>
+  <!-- 4PL sigmoid -->
+  <path d="M110,380 C170,378 200,360 240,300 C280,240 300,180 360,160 C400,150 440,148 455,147"
+        fill="none" stroke="#2e8c9e" stroke-width="3"/>
+  <circle cx="150" cy="377" r="4" fill="#f2b705"/>
+  <circle cx="220" cy="330" r="4" fill="#f2b705"/>
+  <circle cx="270" cy="262" r="4" fill="#f2b705"/>
+  <circle cx="330" cy="185" r="4" fill="#f2b705"/>
+  <circle cx="410" cy="150" r="4" fill="#f2b705"/>
+  <text x="280" y="430" font-size="13" fill="#5b6b73" text-anchor="middle">4-parameter logistic fit</text>
+
+  <!-- parameter cards -->
+  <g font-size="13" fill="#0e2a38">
+    <rect x="510" y="120" width="350" height="44" rx="8" fill="#ffffff" stroke="#cdd8db"/>
+    <text x="528" y="148">Accuracy &amp; precision — recovery and CV across runs</text>
+    <rect x="510" y="174" width="350" height="44" rx="8" fill="#ffffff" stroke="#cdd8db"/>
+    <text x="528" y="202">Range &amp; sensitivity — LLOQ to ULOQ, working range</text>
+    <rect x="510" y="228" width="350" height="44" rx="8" fill="#ffffff" stroke="#cdd8db"/>
+    <text x="528" y="256">Selectivity &amp; specificity — matrix and interferents</text>
+    <rect x="510" y="282" width="350" height="44" rx="8" fill="#ffffff" stroke="#cdd8db"/>
+    <text x="528" y="310">Parallelism &amp; dilution linearity</text>
+    <rect x="510" y="336" width="350" height="44" rx="8" fill="#ffffff" stroke="#cdd8db"/>
+    <text x="528" y="364">Stability — sample, reagent and freeze-thaw</text>
+  </g>
+
+  <text x="40" y="466" font-size="12" fill="#90a0a6">© 2026 AlpinaBioTech GmbH — original illustration. RUO context; parameters per fit-for-purpose practice.</text>
+</svg>

@@ -1,0 +1,32 @@
+{
+  "meta": {
+    "name": "AlpinaBioTech news-monitoring feed seed",
+    "purpose": "ELISA/immunoassays, TDM of biologics, ADA/immunogenicity, biosimilars, EU lab/diagnostics."
+  },
+  "feeds": [
+    { "name": "Bioanalysis Zone", "url": "https://www.bioanalysis-zone.com/feed/", "category": "bioanalysis_methods", "status": "pattern_check" },
+    { "name": "Bioanalysis (Taylor & Francis journal)", "url": "https://www.tandfonline.com/feed/rss/ibio20", "category": "bioanalysis_methods", "status": "verified" },
+    { "name": "Journal of Immunological Methods (Elsevier)", "url": "https://rss.sciencedirect.com/publication/science/00221759", "category": "bioanalysis_methods", "status": "pattern_check" },
+    { "name": "Journal of Pharmaceutical and Biomedical Analysis (Elsevier)", "url": "https://rss.sciencedirect.com/publication/science/07317085", "category": "bioanalysis_methods", "status": "pattern_check" },
+    { "name": "Therapeutic Drug Monitoring (Wolters Kluwer/LWW)", "url": "https://journals.lww.com/drug-monitoring/pages/default.aspx", "category": "tdm_immunogenicity", "status": "generate" },
+    { "name": "Clinical Chemistry (Oxford/AACC)", "url": "https://academic.oup.com/rss/site_5328/3091.xml", "category": "tdm_immunogenicity", "status": "pattern_check" },
+    { "name": "The AAPS Journal (Springer)", "url": "https://link.springer.com/journal/12248.rss", "category": "tdm_immunogenicity", "status": "pattern_check" },
+    { "name": "The Center for Biosimilars", "url": "https://www.centerforbiosimilars.com/rss", "category": "biologics_biosimilars", "status": "pattern_check" },
+    { "name": "GaBI Online (Generics & Biosimilars Initiative)", "url": "https://gabionline.net/rss", "category": "biologics_biosimilars", "status": "pattern_check" },
+    { "name": "BioPharma-Reporter (William Reed)", "url": "https://www.biopharma-reporter.com/feed/", "category": "biologics_biosimilars", "status": "pattern_check" },
+    { "name": "BioPharma Dive", "url": "https://www.biopharmadive.com/feeds/news/", "category": "biologics_biosimilars", "status": "verified" },
+    { "name": "BioSpace News", "url": "https://www.biospace.com/rss/", "category": "biologics_biosimilars", "status": "pattern_check" },
+    { "name": "Labiotech.eu", "url": "https://www.labiotech.eu/feed/", "category": "industry_diagnostics", "status": "verified" },
+    { "name": "FierceBiotech", "url": "https://www.fiercebiotech.com/rss/xml", "category": "industry_diagnostics", "status": "pattern_check" },
+    { "name": "360Dx (GenomeWeb diagnostics/IVD)", "url": "https://www.360dx.com/", "category": "industry_diagnostics", "status": "generate" },
+    { "name": "Technology Networks - Immunology & Microbiology", "url": "https://www.technologynetworks.com/immunology", "category": "industry_diagnostics", "status": "generate" },
+    { "name": "EMA news", "url": "https://www.ema.europa.eu/en/news.xml", "category": "regulatory", "status": "verified" },
+    { "name": "FDA - Drugs / CDER news", "url": "https://www.fda.gov/about-fda/contact-fda/stay-informed/rss-feeds/drugs/rss.xml", "category": "regulatory", "status": "verified" },
+    { "name": "Journal of Crohn's and Colitis (Oxford)", "url": "https://academic.oup.com/ecco-jcc", "category": "clinical_end_markets", "status": "generate" },
+    { "name": "Gut (BMJ)", "url": "https://gut.bmj.com/rss/current.xml", "category": "clinical_end_markets", "status": "pattern_check" },
+    { "name": "Annals of the Rheumatic Diseases (BMJ)", "url": "https://ard.bmj.com/rss/current.xml", "category": "clinical_end_markets", "status": "pattern_check" },
+    { "name": "bioRxiv - Immunology", "url": "https://connect.biorxiv.org/biorxiv_xml.php?subject=immunology", "category": "custom_alerts", "status": "verified" },
+    { "name": "PubMed saved-search: drug TDM + ADA", "url": null, "category": "custom_alerts", "status": "generate" },
+    { "name": "PubMed saved-search: immunoassay methods", "url": null, "category": "custom_alerts", "status": "generate" }
+  ]
+}

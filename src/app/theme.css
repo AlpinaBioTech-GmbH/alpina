@@ -1,0 +1,41 @@
+/* ---------------------------------------------------------------------------
+   Brand alias layer (swap this file to rebrand the surface/contrast bands).
+
+   The public-site components (hero, header, footer, news) are built from two
+   band roles instead of raw shadcn tokens:
+
+     - "surface": the calm content band  -> --paper / --ink / --hair
+     - "contrast": the dramatic band (hero, CTA, footer, headers)
+                                          -> --void / --on-contrast / --steel
+
+   Here those band tokens are defined as ALIASES of the neutral shadcn tokens in
+   globals.css. Because they reference var(--background) etc., they automatically
+   re-tone in dark mode with no separate .dark block. To give the template a real
+   brand, override these values (and/or the shadcn tokens in globals.css).
+
+   --signal is the single accent (links, focus rings, primary CTAs). It maps to
+   the shadcn --primary by default; point it at a brand color to add a pop.
+--------------------------------------------------------------------------- */
+:root {
+  /* surface band */
+  --paper: var(--background);
+  --paper-2: var(--card);
+  --ink: var(--foreground);
+  --ink-2: var(--muted-foreground);
+  --hair: var(--border);
+
+  /* contrast band */
+  --void: var(--secondary);
+  --graphite: var(--muted);
+  --steel: var(--border);
+  --mist: var(--muted-foreground);
+  --on-contrast: var(--secondary-foreground);
+
+  /* single accent */
+  --signal: var(--primary);
+  --signal-dim: color-mix(in oklch, var(--primary) 50%, transparent);
+  --on-signal: var(--primary-foreground);
+
+  /* off-band tint (telemetry / secondary marks) */
+  --frost: var(--muted-foreground);
+}
