@@ -13,11 +13,12 @@ HARD REQUIREMENTS (a figure that breaks any of these is rejected):
 - Root element: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="Arial, Helvetica, sans-serif">.
 - First child: <rect width="900" height="480" fill="#f4f7f8"/>.
 - Title: <text x="40" y="48" font-size="26" font-weight="bold" fill="#0e2a38">…</text>. This is a SHORT figure title: keep it under ~46 characters so it never runs past x=860. If the article title is longer, shorten or rephrase it into a concise figure title (do NOT paste the full article title).
-- Subtitle: <text x="40" y="74" font-size="15" fill="#5b6b73">…</text> (one sentence).
+- Subtitle: <text x="40" y="74" font-size="15" fill="#5b6b73">…</text>. One sentence, <= 95 characters, on a SINGLE line that ends before x=860 (do not let it run off the canvas).
 - Use ONLY these colours: #0e2a38 ink, #2e8c9e teal, #7fb2bf light teal, #f2b705 amber "signal", #5b6b73 slate, #cdd8db hairline, #c0392b red (sparingly), #ffffff cards, #f4f7f8 background, #90a0a6 credit.
 - Cards/panels: fill="#ffffff" stroke="#cdd8db" rx 10-12. Axes: stroke="#0e2a38" stroke-width="2". Dashed refs: stroke-dasharray="6 4".
 - Reuse the SIGNATURE MOTIF: an amber circle (#f2b705) means the "signal" / result / readout.
 - >=40px margins, generous spacing, legible labels. A clean labelled SCHEMATIC; clarity over decoration.
+- NOTHING may be clipped: every <text> must end before x=860 and stay inside its card. If a label is too long for its card, split it across TWO <text> lines (a 2-line card, ~12px line spacing) rather than overflowing. In small 10px card text keep each line <= ~36 characters; make cards tall enough (about 54px) to hold a header plus two lines.
 - LAST element must be the credit line, EXACTLY in this shape (only the trailing qualifier varies):
   <text x="40" y="466" font-size="12" fill="#90a0a6">© 2026 AlpinaBioTech GmbH — original illustration. {QUALIFIER}</text>
   where {QUALIFIER} is a short clause such as "Conceptual; not to scale." or "Conceptual; thresholds are assay- and drug-specific.".
@@ -38,9 +39,11 @@ export function validateFigure(svg: string): boolean {
   if (!/viewBox="0 0 900 480"/.test(svg)) return false;
   if (!/<rect[^>]*fill="#f4f7f8"/.test(svg)) return false; // canvas background
   if (!/©\s*\d{4}\s*AlpinaBioTech GmbH/.test(svg)) return false; // credit line present
-  // Title must fit the canvas (no clipping at 26px within ~820px of width).
+  // Title and subtitle must fit the canvas (no clipping at the left margin).
   const title = svg.match(/<text x="40" y="48"[^>]*>([^<]*)<\/text>/)?.[1] ?? "";
   if (!title || title.length > 58) return false;
+  const subtitle = svg.match(/<text x="40" y="74"[^>]*>([^<]*)<\/text>/)?.[1] ?? "";
+  if (subtitle.length > 110) return false;
   if (/<script/i.test(svg)) return false;
   if (/<image\b/i.test(svg)) return false;
   if (/data:image|xlink:href|href\s*=\s*"https?:/i.test(svg)) return false; // no raster/external refs
