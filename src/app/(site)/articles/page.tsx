@@ -6,9 +6,27 @@ import { fetchArticles } from "@/lib/storyblok";
 import { brand } from "@/lib/config";
 import ArticleList from "@/components/site/ArticleList";
 
+// This route has no Storyblok story, so the OG generator gets an explicit
+// title/eyebrow instead of a ?slug= (mirrors the H1 below).
+const OG_TITLE = "Notes on immunoassays and drug monitoring";
+const ogImageUrl = `/api/og?eyebrow=${encodeURIComponent("Articles")}&title=${encodeURIComponent(OG_TITLE)}`;
+
+const description = `Insights on ELISA, therapeutic drug monitoring, and immunogenicity from ${brand.name}.`;
+
 export const metadata: Metadata = {
   title: "Articles",
-  description: `Insights on ELISA, therapeutic drug monitoring, and immunogenicity from ${brand.name}.`,
+  description,
+  openGraph: {
+    title: "Articles",
+    description,
+    images: [{ url: ogImageUrl, width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Articles",
+    description,
+    images: [ogImageUrl],
+  },
 };
 
 export default async function ArticlesIndex() {

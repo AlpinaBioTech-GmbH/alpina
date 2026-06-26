@@ -36,10 +36,16 @@ function derive(content: Record<string, unknown> | undefined) {
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const slug = searchParams.get("slug") || "home";
-  const story = await fetchStory(slug).catch(() => null);
-  const { eyebrow, title } = derive(
+  // Static routes with no Storyblok story (e.g. /articles) can pass an explicit
+  // title/eyebrow instead of a slug, so they still get a per-page card.
+  const titleParam = searchParams.get("title");
+  const eyebrowParam = searchParams.get("eyebrow");
+  const story = titleParam ? null : await fetchStory(slug).catch(() => null);
+  let { eyebrow, title } = derive(
     story?.content as Record<string, unknown> | undefined,
   );
+  if (eyebrowParam) eyebrow = eyebrowParam;
+  if (titleParam) title = titleParam;
 
   const [figtree400, figtree600, mono] = await Promise.all([
     readFile(new URL("./Figtree-400.woff", import.meta.url)),
@@ -49,12 +55,14 @@ export async function GET(request: Request) {
 
   const titleSize = title.length > 48 ? 58 : title.length > 30 ? 70 : 84;
 
-  // Neutral palette: dark base, light accent + text.
-  const BASE = "#1c1917";
-  const ACCENT = "#e7e5e4";
-  const TEXT = "#f5f5f4";
-  const MUTED = "#a8a29e";
-  const HAIR = "#44403c";
+  // Alpina blue palette (hue 258), converted from the dark-theme oklch tokens:
+  // deep-blue base, signal-blue accent, near-white text.
+  const BASE = "#061226";
+  const ACCENT = "#3d84ea";
+  const TEXT = "#edf2fa";
+  const MUTED = "#95a6be";
+  const HAIR = "#28364a";
+  const ON_SIGNAL = "#f8fcff"; // text on the signal-blue CTA
 
   return new ImageResponse(
     (
@@ -123,7 +131,7 @@ export async function GET(request: Request) {
               display: "flex",
               alignItems: "center",
               background: ACCENT,
-              color: BASE,
+              color: ON_SIGNAL,
               fontFamily: "IBM Plex Mono",
               fontSize: 24,
               fontWeight: 600,
