@@ -201,6 +201,42 @@ export interface PublishedArticle {
   excerpt: string;
   tags: string[];
   published: boolean;
+  /** Whether the article was given a hero figure (figure or cover). */
+  hasHero: boolean;
+}
+
+const FIGURE_COPYRIGHT = "© 2026 AlpinaBioTech GmbH. All rights reserved.";
+const FIGURE_SOURCE = "Original illustration created in-house for AlpinaBioTech GmbH.";
+
+// Upload an original SVG figure as a Storyblok asset (with rights metadata) and
+// return the hero_image asset object for the article content.
+async function uploadFigure(
+  figure: { svg: string; alt: string; title: string },
+  slug: string,
+): Promise<Record<string, unknown>> {
+  const bytes = new TextEncoder().encode(figure.svg);
+  const filename = `${slug.replace(/[^a-z0-9-]+/gi, "-").replace(/^-+|-+$/g, "").slice(0, 70)}.svg`;
+  const { id, url } = await uploadImageAsset({
+    bytes: bytes.buffer as ArrayBuffer,
+    filename,
+    contentType: "image/svg+xml",
+  });
+  await mapi(`/assets/${id}`, {
+    method: "PUT",
+    body: JSON.stringify({
+      meta_data: { alt: figure.alt, title: figure.title, copyright: FIGURE_COPYRIGHT, source: FIGURE_SOURCE },
+    }),
+  });
+  return {
+    id,
+    fieldtype: "asset",
+    filename: url,
+    alt: figure.alt,
+    title: figure.title,
+    copyright: FIGURE_COPYRIGHT,
+    source: FIGURE_SOURCE,
+    name: "",
+  };
 }
 
 /**
@@ -214,6 +250,8 @@ export async function publishArticle(
   opts: {
     publish: boolean;
     author?: string;
+    // Original SVG hero figure (preferred). Per IMAGE-GENERATION.md.
+    figure?: { svg: string; alt: string; title: string };
     cover?: { assetId: number; assetUrl: string; alt: string; credit: string; sourceUrl: string };
   },
 ): Promise<PublishedArticle> {
@@ -226,6 +264,19 @@ export async function publishArticle(
   if (!folder) throw new Error(`${ARTICLE_FOLDER} folder missing in Storyblok`);
 
   const slug = await uniqueSlug(draft.slug);
+
+  // Hero image: prefer the original SVG figure; fall back to a stock cover.
+  let heroImage: Record<string, unknown> | undefined;
+  if (opts.figure) {
+    heroImage = await uploadFigure(opts.figure, slug);
+  } else if (opts.cover) {
+    heroImage = {
+      id: opts.cover.assetId,
+      filename: opts.cover.assetUrl,
+      alt: opts.cover.alt,
+      fieldtype: "asset",
+    };
+  }
 
   // The `article` component stores its body as a markdown field (rendered by
   // ArticleBody / react-markdown), so write the markdown string directly - do
@@ -251,14 +302,7 @@ export async function publishArticle(
           date: todayIso,
           body,
           tags: constrainTags(draft.tags),
-          ...(opts.cover && {
-            hero_image: {
-              id: opts.cover.assetId,
-              filename: opts.cover.assetUrl,
-              alt: opts.cover.alt,
-              fieldtype: "asset",
-            },
-          }),
+          ...(heroImage && { hero_image: heroImage }),
         },
       },
     }),
@@ -273,5 +317,6 @@ export async function publishArticle(
     excerpt: draft.excerpt,
     tags: draft.tags,
     published: opts.publish,
+    hasHero: Boolean(heroImage),
   };
 }

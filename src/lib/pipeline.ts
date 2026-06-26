@@ -18,7 +18,7 @@ import {
 } from "@/lib/storyblok-management";
 import { startRun, finishRun, type RunAttempt, type RunTrigger } from "@/lib/runs";
 import { announceArticle } from "@/lib/social/announce";
-import { resolveCover } from "@/lib/images/cover";
+import { generateFigureSvg } from "@/lib/anthropic/figure";
 import { content } from "@/lib/config";
 
 // Number("") is 0 and an unset CI var injects "", so guard against
@@ -102,21 +102,33 @@ export async function runArticlePipeline(trigger: RunTrigger): Promise<ArticlePi
       });
     }
 
-    // Publish on editor approval, or when the final score clears the floor;
-    // only below-floor drafts are held unpublished for human review.
-    const shouldPublish = verdict.approved || verdict.score >= PUBLISH_FLOOR;
+    // Text quality gate: editor approval, or a final score clearing the floor.
+    const textOk = verdict.approved || verdict.score >= PUBLISH_FLOOR;
 
-    // Best-effort cover image (Pexels → Storyblok asset); never blocks publish.
-    const cover = await resolveCover(
-      [draft.tags.slice(0, 3).join(" "), draft.tags[0] ?? "", draft.category].filter(Boolean),
-      draft.slug,
-    );
+    // Author the article's ORIGINAL hero figure (hand-written SVG per
+    // IMAGE-GENERATION.md). Every LIVE article must ship with exactly one such
+    // figure, consistent with the existing set - that is the figure check. When
+    // a spec-compliant figure can't be produced, hold the article unpublished
+    // for human review rather than publishing it figureless or with stock art.
+    const figureSvg = await generateFigureSvg({
+      title: draft.title,
+      concept: draft.excerpt || draft.title,
+    });
+    const figure = figureSvg
+      ? { svg: figureSvg, title: draft.title, alt: `Schematic figure illustrating: ${draft.title}` }
+      : undefined;
+    if (!figure) console.warn("[pipeline] no spec-compliant figure; holding article as draft");
+
+    const shouldPublish = textOk && Boolean(figure);
 
     const article = await publishArticle(draft, {
       publish: shouldPublish,
       author: opinionTopic ? content.writer.opinionAuthorName : undefined,
-      cover: cover ?? undefined,
+      figure,
     });
+    if (shouldPublish && !article.hasHero) {
+      console.error("[pipeline] published without a hero figure - figure check inconsistency");
+    }
 
     // Mark the topic written whenever a story was created (published or held
     // as draft) so the next run doesn't produce a duplicate piece.
@@ -134,7 +146,13 @@ export async function runArticlePipeline(trigger: RunTrigger): Promise<ArticlePi
       approved: verdict.approved,
       revision_count: revisions,
       attempts,
-      notes: opinionTopic ? `opinion: ${opinionTopic.topic}` : undefined,
+      notes:
+        [
+          opinionTopic ? `opinion: ${opinionTopic.topic}` : null,
+          textOk && !figure ? "held: no spec-compliant figure" : null,
+        ]
+          .filter(Boolean)
+          .join("; ") || undefined,
       draft,
     });
 

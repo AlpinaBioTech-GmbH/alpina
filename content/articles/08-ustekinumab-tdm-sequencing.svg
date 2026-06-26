@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="Arial, Helvetica, sans-serif">
+  <rect width="900" height="480" fill="#f4f7f8"/>
+  <text x="40" y="48" font-size="26" font-weight="bold" fill="#0e2a38">Drug-level monitoring guides treatment sequencing</text>
+  <text x="40" y="74" font-size="15" fill="#5b6b73">As biosimilar ustekinumab moves earlier in Crohn's disease, trough level and ADA status shape the next step.</text>
+
+  <!-- trough vs time plot -->
+  <text x="92" y="104" font-size="13" fill="#0e2a38" font-weight="bold">Trough concentration over time</text>
+  <!-- target window band -->
+  <rect x="92" y="190" width="338" height="70" fill="#2e8c9e" opacity="0.16"/>
+  <text x="100" y="212" font-size="12" fill="#2e8c9e">target trough window</text>
+  <!-- sub-therapeutic reference -->
+  <line x1="92" y1="260" x2="430" y2="260" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="426" y="278" font-size="11.5" fill="#c0392b" text-anchor="end">sub-therapeutic</text>
+  <!-- axes -->
+  <line x1="92" y1="130" x2="92" y2="380" stroke="#0e2a38" stroke-width="2"/>
+  <line x1="92" y1="380" x2="440" y2="380" stroke="#0e2a38" stroke-width="2"/>
+  <text x="84" y="135" font-size="12" fill="#5b6b73" text-anchor="end">trough</text>
+  <text x="436" y="400" font-size="12" fill="#5b6b73" text-anchor="end">time on therapy</text>
+  <!-- trough trajectory: starts sub-therapeutic, optimised into window -->
+  <polyline points="130,300 195,278 260,232 330,222 400,224" fill="none" stroke="#0e2a38" stroke-width="1.5" opacity="0.45"/>
+  <circle cx="130" cy="300" r="5.5" fill="#c0392b"/>
+  <circle cx="195" cy="278" r="5.5" fill="#f2b705"/>
+  <circle cx="260" cy="232" r="5.5" fill="#f2b705"/>
+  <circle cx="330" cy="222" r="5.5" fill="#f2b705"/>
+  <circle cx="400" cy="224" r="5.5" fill="#f2b705"/>
+  <text x="130" y="338" font-size="11.5" fill="#5b6b73" text-anchor="middle">low</text>
+  <text x="360" y="206" font-size="11.5" fill="#5b6b73" text-anchor="middle">after optimisation</text>
+
+  <!-- decision branch -->
+  <rect x="486" y="120" width="354" height="40" rx="10" fill="#ffffff" stroke="#0e2a38" stroke-width="2"/>
+  <text x="663" y="145" font-size="14" font-weight="bold" fill="#0e2a38" text-anchor="middle">Measure trough + ADA</text>
+
+  <g stroke="#0e2a38" stroke-width="2" fill="none">
+    <path d="M540,160 C525,185 522,195 522,212"/>
+    <path d="M663,160 L663,212"/>
+    <path d="M786,160 C801,185 804,195 804,212"/>
+  </g>
+  <g fill="#0e2a38">
+    <polygon points="522,216 518,208 526,208"/>
+    <polygon points="663,216 659,208 667,208"/>
+    <polygon points="804,216 800,208 808,208"/>
+  </g>
+
+  <!-- outcome cards -->
+  <g>
+    <rect x="486" y="216" width="110" height="150" rx="11" fill="#ffffff" stroke="#cdd8db"/>
+    <circle cx="541" cy="246" r="7" fill="#2e8c9e"/>
+    <text x="541" y="284" font-size="12.5" fill="#0e2a38" text-anchor="middle">Low trough,</text>
+    <text x="541" y="302" font-size="12.5" fill="#0e2a38" text-anchor="middle">no ADA</text>
+    <text x="541" y="332" font-size="12.5" font-weight="bold" fill="#2e8c9e" text-anchor="middle">dose-</text>
+    <text x="541" y="349" font-size="12.5" font-weight="bold" fill="#2e8c9e" text-anchor="middle">optimise</text>
+  </g>
+  <g>
+    <rect x="608" y="216" width="110" height="150" rx="11" fill="#ffffff" stroke="#cdd8db"/>
+    <circle cx="663" cy="246" r="7" fill="#f2b705"/>
+    <text x="663" y="284" font-size="12.5" fill="#0e2a38" text-anchor="middle">Low trough,</text>
+    <text x="663" y="302" font-size="12.5" fill="#0e2a38" text-anchor="middle">ADA positive</text>
+    <text x="663" y="332" font-size="12.5" font-weight="bold" fill="#0e2a38" text-anchor="middle">switch</text>
+    <text x="663" y="349" font-size="12.5" font-weight="bold" fill="#0e2a38" text-anchor="middle">out-of-class</text>
+  </g>
+  <g>
+    <rect x="730" y="216" width="110" height="150" rx="11" fill="#ffffff" stroke="#cdd8db"/>
+    <circle cx="785" cy="246" r="7" fill="#0e2a38"/>
+    <text x="785" y="284" font-size="12.5" fill="#0e2a38" text-anchor="middle">Adequate</text>
+    <text x="785" y="302" font-size="12.5" fill="#0e2a38" text-anchor="middle">trough, active</text>
+    <text x="785" y="332" font-size="12.5" font-weight="bold" fill="#0e2a38" text-anchor="middle">change</text>
+    <text x="785" y="349" font-size="12.5" font-weight="bold" fill="#0e2a38" text-anchor="middle">mechanism</text>
+  </g>
+
+  <text x="40" y="466" font-size="12" fill="#90a0a6">© 2026 AlpinaBioTech GmbH — original illustration. Conceptual; thresholds are assay- and drug-specific.</text>
+</svg>

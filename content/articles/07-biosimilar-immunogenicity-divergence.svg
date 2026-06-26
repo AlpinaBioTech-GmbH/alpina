@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="Arial, Helvetica, sans-serif">
+  <rect width="900" height="480" fill="#f4f7f8"/>
+  <text x="40" y="48" font-size="26" font-weight="bold" fill="#0e2a38">Biosimilar immunogenicity: shared assay, divergent rules</text>
+  <text x="40" y="74" font-size="15" fill="#5b6b73">A validated, tiered anti-drug-antibody assay is the common foundation; jurisdictions differ on requiring it.</text>
+
+  <!-- tiered ADA assay pipeline (the shared analytical foundation) -->
+  <g font-size="13.5" fill="#0e2a38" text-anchor="middle">
+    <rect x="60" y="104" width="160" height="46" rx="10" fill="#ffffff" stroke="#2e8c9e" stroke-width="2"/>
+    <text x="140" y="132">Screening</text>
+    <rect x="262" y="104" width="160" height="46" rx="10" fill="#ffffff" stroke="#2e8c9e" stroke-width="2"/>
+    <text x="342" y="132">Confirmatory</text>
+    <rect x="464" y="104" width="160" height="46" rx="10" fill="#ffffff" stroke="#2e8c9e" stroke-width="2"/>
+    <text x="544" y="132">Titre</text>
+    <rect x="666" y="104" width="174" height="46" rx="10" fill="#ffffff" stroke="#2e8c9e" stroke-width="2"/>
+    <text x="753" y="132">Neutralising</text>
+  </g>
+  <!-- arrows between stages -->
+  <g stroke="#0e2a38" stroke-width="2">
+    <line x1="220" y1="127" x2="258" y2="127"/>
+    <line x1="422" y1="127" x2="460" y2="127"/>
+    <line x1="624" y1="127" x2="662" y2="127"/>
+  </g>
+  <g fill="#0e2a38">
+    <polygon points="258,127 250,123 250,131"/>
+    <polygon points="460,127 452,123 452,131"/>
+    <polygon points="662,127 654,123 654,131"/>
+  </g>
+  <!-- amber signal motif on the confirmatory (positive) stage -->
+  <circle cx="342" cy="104" r="6" fill="#f2b705"/>
+  <text x="450" y="172" font-size="12.5" fill="#5b6b73" text-anchor="middle">Validated tiered immunogenicity assay</text>
+
+  <!-- feed into pooled data node -->
+  <line x1="450" y1="178" x2="450" y2="206" stroke="#0e2a38" stroke-width="2"/>
+  <polygon points="450,210 446,202 454,202" fill="#0e2a38"/>
+  <rect x="300" y="210" width="300" height="48" rx="11" fill="#ffffff" stroke="#cdd8db"/>
+  <text x="450" y="240" font-size="14" fill="#0e2a38" text-anchor="middle">Pooled cross-border immunogenicity data</text>
+
+  <!-- diverging arrows to two frameworks -->
+  <g stroke="#0e2a38" stroke-width="2" fill="none">
+    <path d="M360,258 C300,290 250,300 240,318"/>
+    <path d="M540,258 C600,290 650,300 660,318"/>
+  </g>
+  <g fill="#0e2a38">
+    <polygon points="240,322 234,314 244,313"/>
+    <polygon points="660,322 656,313 666,314"/>
+  </g>
+
+  <!-- framework A: requirement upheld -->
+  <rect x="60" y="324" width="360" height="96" rx="12" fill="#ffffff" stroke="#cdd8db"/>
+  <circle cx="86" cy="352" r="9" fill="#2e8c9e"/>
+  <polyline points="81,352 85,356 91,348" fill="none" stroke="#ffffff" stroke-width="2"/>
+  <text x="106" y="356" font-size="15" font-weight="bold" fill="#0e2a38">Jurisdiction A</text>
+  <text x="80" y="385" font-size="13.5" fill="#5b6b73">Validated tiered ADA assay required;</text>
+  <text x="80" y="405" font-size="13.5" fill="#5b6b73">neutralising data expected on signal.</text>
+
+  <!-- framework B: requirement may be waived -->
+  <rect x="480" y="324" width="360" height="96" rx="12" fill="#ffffff" stroke="#cdd8db"/>
+  <circle cx="506" cy="352" r="9" fill="#c0392b"/>
+  <line x1="502" y1="352" x2="510" y2="352" stroke="#ffffff" stroke-width="2"/>
+  <text x="526" y="356" font-size="15" font-weight="bold" fill="#0e2a38">Jurisdiction B</text>
+  <text x="500" y="385" font-size="13.5" fill="#5b6b73">Tiered requirement may be reduced or</text>
+  <text x="500" y="405" font-size="13.5" fill="#5b6b73">waived; provenance becomes uncertain.</text>
+
+  <text x="40" y="466" font-size="12" fill="#90a0a6">© 2026 AlpinaBioTech GmbH — original illustration. Conceptual; requirements are jurisdiction- and product-specific.</text>
+</svg>
