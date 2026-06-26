@@ -56,6 +56,7 @@ ${w.rules.map((r) => `- ${r}`).join("\n")}
 - Specific dates, figures, thresholds, named actors. Specific and true beats big and vague.
 - Markdown vocabulary is restricted to: ## and ### headings, paragraphs, **bold**, *italic*, [text](url) links, "- " bullets, "> " blockquotes, "---" rules. Nothing else (no tables, no images, no code blocks).
 - Never use em-dash or en-dash characters anywhere. Use commas, colons, or "to" for ranges.
+- Tags: choose 1 to 3, copied VERBATIM from this exact list (no others, no invented tags): ${content.writer.articleTags.join(", ")}.
 
 ${todayLine()}`;
 }

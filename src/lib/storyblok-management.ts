@@ -137,6 +137,62 @@ function sourcesSection(sourceUrls: string[]): string {
   return `\n\n---\n\n## Sources\n\n${items.join("\n")}`;
 }
 
+// Fold the writer's tags onto the controlled vocabulary (content.writer.
+// articleTags), mapping common synonyms back to a canonical tag so the
+// /articles tag filter only ever sees the approved 7.
+const TAG_ALIASES: Record<string, string> = {
+  ada: "Anti-Drug Antibodies",
+  "anti-drug antibody": "Anti-Drug Antibodies",
+  "anti-drug antibodies": "Anti-Drug Antibodies",
+  immunogenicity: "Immunogenicity",
+  immunogenic: "Immunogenicity",
+  tdm: "Therapeutic Drug Monitoring",
+  "therapeutic drug monitoring": "Therapeutic Drug Monitoring",
+  "drug monitoring": "Therapeutic Drug Monitoring",
+  "drug-level monitoring": "Therapeutic Drug Monitoring",
+  trough: "Therapeutic Drug Monitoring",
+  pharmacokinetics: "Therapeutic Drug Monitoring",
+  biosimilar: "Biosimilars",
+  biosimilars: "Biosimilars",
+  switching: "Biosimilars",
+  "anti-tnf": "Anti-TNF",
+  tnf: "Anti-TNF",
+  infliximab: "Anti-TNF",
+  adalimumab: "Anti-TNF",
+  ibd: "Anti-TNF",
+  "inflammatory bowel disease": "Anti-TNF",
+  elisa: "ELISA",
+  immunoassay: "ELISA",
+  immunoassays: "ELISA",
+  methods: "ELISA",
+  "assay validation": "Assay Validation",
+  validation: "Assay Validation",
+  reproducibility: "Assay Validation",
+  "fit-for-purpose": "Assay Validation",
+  ruo: "Assay Validation",
+  quality: "Assay Validation",
+};
+
+function constrainTags(raw: string[]): string[] {
+  const canon = new Map(content.writer.articleTags.map((t) => [t.toLowerCase(), t]));
+  const out: string[] = [];
+  const add = (v?: string) => {
+    if (v && !out.includes(v)) out.push(v);
+  };
+  for (const t of raw) {
+    const key = t.trim().toLowerCase();
+    if (!key) continue;
+    if (canon.has(key)) add(canon.get(key));
+    else if (TAG_ALIASES[key]) add(TAG_ALIASES[key]);
+    else {
+      // substring fallback: "anti-TNF therapy", "biosimilar switching", etc.
+      const hit = Object.keys(TAG_ALIASES).find((a) => key.includes(a));
+      if (hit) add(TAG_ALIASES[hit]);
+    }
+  }
+  return out.slice(0, 3);
+}
+
 export interface PublishedArticle {
   id: string;
   slug: string;
@@ -194,7 +250,7 @@ export async function publishArticle(
           author: opts.author ?? brand.name,
           date: todayIso,
           body,
-          tags: draft.tags,
+          tags: constrainTags(draft.tags),
           ...(opts.cover && {
             hero_image: {
               id: opts.cover.assetId,

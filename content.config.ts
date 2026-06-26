@@ -30,6 +30,18 @@ export const content = {
     ],
     /** Author name attached to first-person opinion pieces. */
     opinionAuthorName: "AlpinaBioTech",
+    /** Controlled tag vocabulary: the ONLY tags an article may carry. The
+     *  writer picks 1-3 from this list and publishArticle enforces it (mapping
+     *  near-synonyms back to these), so the /articles tag filter stays tidy. */
+    articleTags: [
+      "ELISA",
+      "Therapeutic Drug Monitoring",
+      "Immunogenicity",
+      "Anti-Drug Antibodies",
+      "Biosimilars",
+      "Anti-TNF",
+      "Assay Validation",
+    ],
   },
 
   /** Shared tone for social composers + validators (both import these). */
