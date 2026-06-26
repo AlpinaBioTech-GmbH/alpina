@@ -12,7 +12,7 @@ const FIGURE_BRIEF = `Author a single, self-contained SVG figure for an AlpinaBi
 HARD REQUIREMENTS (a figure that breaks any of these is rejected):
 - Root element: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" font-family="Arial, Helvetica, sans-serif">.
 - First child: <rect width="900" height="480" fill="#f4f7f8"/>.
-- Title: <text x="40" y="48" font-size="26" font-weight="bold" fill="#0e2a38">…</text> (the figure title).
+- Title: <text x="40" y="48" font-size="26" font-weight="bold" fill="#0e2a38">…</text>. This is a SHORT figure title: keep it under ~46 characters so it never runs past x=860. If the article title is longer, shorten or rephrase it into a concise figure title (do NOT paste the full article title).
 - Subtitle: <text x="40" y="74" font-size="15" fill="#5b6b73">…</text> (one sentence).
 - Use ONLY these colours: #0e2a38 ink, #2e8c9e teal, #7fb2bf light teal, #f2b705 amber "signal", #5b6b73 slate, #cdd8db hairline, #c0392b red (sparingly), #ffffff cards, #f4f7f8 background, #90a0a6 credit.
 - Cards/panels: fill="#ffffff" stroke="#cdd8db" rx 10-12. Axes: stroke="#0e2a38" stroke-width="2". Dashed refs: stroke-dasharray="6 4".
@@ -38,6 +38,9 @@ export function validateFigure(svg: string): boolean {
   if (!/viewBox="0 0 900 480"/.test(svg)) return false;
   if (!/<rect[^>]*fill="#f4f7f8"/.test(svg)) return false; // canvas background
   if (!/©\s*\d{4}\s*AlpinaBioTech GmbH/.test(svg)) return false; // credit line present
+  // Title must fit the canvas (no clipping at 26px within ~820px of width).
+  const title = svg.match(/<text x="40" y="48"[^>]*>([^<]*)<\/text>/)?.[1] ?? "";
+  if (!title || title.length > 58) return false;
   if (/<script/i.test(svg)) return false;
   if (/<image\b/i.test(svg)) return false;
   if (/data:image|xlink:href|href\s*=\s*"https?:/i.test(svg)) return false; // no raster/external refs
