@@ -2,7 +2,6 @@
 // Component-free delivery reads: this module is imported by the CLI pipeline,
 // so it must not pull in lib/storyblok.ts (React component map + server-only).
 import { fetchStoriesRaw as fetchStories } from "@/lib/storyblok-delivery";
-import { markdownToRichtext } from "@/lib/storyblok-richtext";
 import { stripLongDashesDeep } from "@/lib/strip-dashes";
 import { imageDimensions } from "@/lib/images/dimensions";
 import type { DraftArticle } from "@/lib/anthropic/writer";
@@ -98,17 +97,6 @@ export async function listCategories(): Promise<CategoryStory[]> {
   }
 }
 
-async function resolveCategoryUuid(name: string): Promise<string | undefined> {
-  const cats = await listCategories();
-  if (cats.length === 0) return undefined;
-  const wanted = name.trim().toLowerCase();
-  const match =
-    cats.find((c) => c.name.toLowerCase() === wanted) ??
-    cats.find((c) => c.slug.toLowerCase() === wanted.replace(/\s+/g, "-")) ??
-    cats.find((c) => c.name.toLowerCase().includes(wanted) || wanted.includes(c.name.toLowerCase()));
-  return (match ?? cats[0]).uuid;
-}
-
 export async function recentArticleTitles(limit = 30): Promise<string[]> {
   try {
     const stories = await fetchStories(ARTICLE_PREFIX, { per_page: limit });
@@ -181,12 +169,14 @@ export async function publishArticle(
   const folder = folderData.stories?.[0];
   if (!folder) throw new Error(`${ARTICLE_FOLDER} folder missing in Storyblok`);
 
-  const [slug, categoryUuid] = await Promise.all([
-    uniqueSlug(draft.slug),
-    resolveCategoryUuid(draft.category),
-  ]);
+  const slug = await uniqueSlug(draft.slug);
 
-  const body = markdownToRichtext(draft.body + sourcesSection(draft.source_urls));
+  // The `article` component stores its body as a markdown field (rendered by
+  // ArticleBody / react-markdown), so write the markdown string directly - do
+  // NOT convert to richtext. Field names match the article schema exactly
+  // (title, teaser, author, date, body, tags, hero_image) so nothing lands
+  // out-of-schema.
+  const body = draft.body + sourcesSection(draft.source_urls);
 
   const todayIso = new Date().toISOString().slice(0, 10);
   const created = await mapi(`/stories`, {
@@ -200,21 +190,18 @@ export async function publishArticle(
         content: {
           component: "article",
           title: draft.title,
-          subtitle: "",
-          excerpt: draft.excerpt,
+          teaser: draft.excerpt,
           author: opts.author ?? brand.name,
-          published_date: todayIso,
-          article_body: body,
+          date: todayIso,
+          body,
           tags: draft.tags,
-          category: categoryUuid,
-          seo_title: `${draft.title} | ${brand.name}`,
-          seo_description: draft.excerpt,
           ...(opts.cover && {
-            cover_image: { id: opts.cover.assetId, filename: opts.cover.assetUrl, alt: opts.cover.alt, fieldtype: "asset" },
-            image_alt: opts.cover.alt,
-            image_credit: opts.cover.credit,
-            image_source_url: opts.cover.sourceUrl,
-            image_rights_note: "Pexels License (free use, attribution not required); credit shown voluntarily.",
+            hero_image: {
+              id: opts.cover.assetId,
+              filename: opts.cover.assetUrl,
+              alt: opts.cover.alt,
+              fieldtype: "asset",
+            },
           }),
         },
       },
