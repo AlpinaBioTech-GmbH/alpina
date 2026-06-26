@@ -1,5 +1,7 @@
 // Storyblok Management API: publishing pipeline-generated articles.
-import { fetchStories } from "@/lib/storyblok";
+// Component-free delivery reads: this module is imported by the CLI pipeline,
+// so it must not pull in lib/storyblok.ts (React component map + server-only).
+import { fetchStoriesRaw as fetchStories } from "@/lib/storyblok-delivery";
 import { markdownToRichtext } from "@/lib/storyblok-richtext";
 import { stripLongDashesDeep } from "@/lib/strip-dashes";
 import { imageDimensions } from "@/lib/images/dimensions";

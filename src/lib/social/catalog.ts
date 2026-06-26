@@ -2,7 +2,12 @@
 // shared by all social providers. Built from Storyblok on every run, driven by
 // content.config.ts so a rebrand never edits this file. A CMS hiccup degrades
 // to a smaller catalog (articles-only, or empty) and never throws.
-import { fetchStory, fetchStories } from "@/lib/storyblok";
+// Component-free delivery reads: the social catalog runs in the CLI pipeline, so
+// it must not import lib/storyblok.ts (React component map + server-only).
+import {
+  fetchStoryRaw as fetchStory,
+  fetchStoriesRaw as fetchStories,
+} from "@/lib/storyblok-delivery";
 import { siteUrl } from "@/lib/site";
 import { content } from "@/lib/config";
 
