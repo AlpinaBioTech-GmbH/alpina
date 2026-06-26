@@ -81,16 +81,26 @@ async function draftFromResearch(research: string, system?: string): Promise<Dra
   return normalizeDraft(draft);
 }
 
+// Tool-use doesn't strictly enforce array types, so the model sometimes returns
+// an array field as a comma/newline-separated string. Coerce to a real string[]
+// (a bare .slice/.map on a string would otherwise pass silently, then later
+// .join/.map calls throw "is not a function").
+function toStringArray(raw: unknown): string[] {
+  if (Array.isArray(raw)) return raw.map((x) => String(x).trim()).filter(Boolean);
+  if (typeof raw === "string") return raw.split(/[\n,]+/).map((x) => x.trim()).filter(Boolean);
+  return [];
+}
+
 function normalizeDraft(draft: DraftArticle): DraftArticle {
   return {
     ...draft,
-    slug: draft.slug
+    slug: String(draft.slug ?? "")
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/^-+|-+$/g, "")
       .slice(0, 80),
-    tags: (draft.tags ?? []).slice(0, 6),
-    source_urls: draft.source_urls ?? [],
+    tags: toStringArray(draft.tags).slice(0, 6),
+    source_urls: toStringArray(draft.source_urls),
   };
 }
 
