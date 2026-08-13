@@ -379,9 +379,9 @@ async function seedStories() {
           label: "Catalog",
           href: navLink("/catalog"),
           children: [
-            { _uid: uid(), component: "nav_card", name: "All kits", one_liner: "Browse the full ELISA-kit catalog", image: navAsset("https://a.storyblok.com/f/293432135200908/1024x705/45c101310a/alpina-biotech.avif", "ELISA assay plate with sample wells"), href: navLink("/catalog") },
-            { _uid: uid(), component: "nav_card", name: "Drug ELISAs", one_liner: "Free drug-level assays for therapeutic drug monitoring", image: navAsset("https://a.storyblok.com/f/293432135200908/768x1024/59c89349c7/a87ace-e8338974eb0e45e9b9c06293bafac645-mv2-jpg.jpg", "ELISA kit box with reagents"), href: navLink("/categories/drug-elisas") },
-            { _uid: uid(), component: "nav_card", name: "Anti-Drug Antibody ELISAs", one_liner: "ADA / immunogenicity assays", image: navAsset("https://a.storyblok.com/f/293432135200908/950x900/e52bc6a79e/a87ace-48bf2911c9fa4735a9d6354ef9e28a08-mv2-png.png", "Anti-drug antibody standard curve"), href: navLink("/categories/anti-drug-antibody-elisas") },
+            { _uid: uid(), component: "nav_card", name: "All kits", one_liner: "Browse the full ELISA-kit catalog", image: navAsset("https://a.storyblok.com/f/294511166656138/1024x705/36b7faba02/alpina-biotech.avif", "ELISA assay plate with sample wells"), href: navLink("/catalog") },
+            { _uid: uid(), component: "nav_card", name: "Drug ELISAs", one_liner: "Free drug-level assays for therapeutic drug monitoring", image: navAsset("https://a.storyblok.com/f/294511166656138/768x1024/defaa46413/a87ace-e8338974eb0e45e9b9c06293bafac645-mv2-jpg.jpg", "ELISA kit box with reagents"), href: navLink("/categories/drug-elisas") },
+            { _uid: uid(), component: "nav_card", name: "Anti-Drug Antibody ELISAs", one_liner: "ADA / immunogenicity assays", image: navAsset("https://a.storyblok.com/f/294511166656138/950x900/d3fbc373d7/a87ace-48bf2911c9fa4735a9d6354ef9e28a08-mv2-png.png", "Anti-drug antibody standard curve"), href: navLink("/categories/anti-drug-antibody-elisas") },
           ],
         },
         { _uid: uid(), component: "nav_item", label: "About", href: navLink("/about") },

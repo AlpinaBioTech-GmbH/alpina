@@ -11,6 +11,7 @@
     "typecheck": "tsc --noEmit",
     "certs": "bash scripts/gen-certs.sh",
     "migrate": "tsx scripts/migrate.ts",
+    "migrate-space": "tsx scripts/migrate-space.ts",
     "articles": "tsx scripts/run-article-pipeline.ts",
     "create-space": "tsx scripts/create-space.ts",
     "seed": "tsx scripts/seed-storyblok.ts",

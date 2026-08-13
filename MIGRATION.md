@@ -66,27 +66,25 @@ contractor. Store every key in a password manager as you go.
 
 ### 1.3 Storyblok (CMS — where all site content lives)
 
-The site's content (37 ELISA kits, 12 categories, all pages) already exists in a
-Storyblok space set up by the developer. Two options:
+The site's full content (37 ELISA kits, 12 categories, all pages, and all
+articles) has already been migrated into a Storyblok space in **your own
+account**: space **AlpinaBioTech**, ID `294511166656138` (EU region). There is
+nothing to transfer — you own it. Just collect the values the site needs:
 
-- **Option A (recommended): take over the existing space.**
-  1. Create an account at <https://app.storyblok.com/#/signup>.
-  2. The developer invites you to the space as **Admin**, then transfers space
-     ownership to you (Space → Settings → General → Transfer ownership).
-  3. Collect these values from the space (Settings → Access Tokens):
-     - **Preview token** (secret) → `STORYBLOK_PREVIEW_TOKEN`
-     - **Public token** → `NEXT_PUBLIC_STORYBLOK_TOKEN`
-     - The **space ID** (shown in Settings) → `STORYBLOK_SPACE_ID`
-  4. Create your own **Personal Access Token** at
-     <https://app.storyblok.com/#/me/account?tab=token> → `STORYBLOK_PERSONAL_ACCESS_TOKEN`
-     (also used as `STORYBLOK_MANAGEMENT_TOKEN`).
+1. From the space (Settings → Access Tokens):
+   - **Preview token** (secret) → `STORYBLOK_PREVIEW_TOKEN`
+   - **Public token** → `NEXT_PUBLIC_STORYBLOK_TOKEN`
+   - The **space ID** (shown in Settings) → `STORYBLOK_SPACE_ID`
+2. Create your own **Personal Access Token** at
+   <https://app.storyblok.com/#/me/account?tab=token> → used as
+   `STORYBLOK_MANAGEMENT_TOKEN` (the article pipeline publishes with it).
 
-- **Option B: recreate the space from scratch.** The repo can rebuild everything:
-  set `STORYBLOK_PERSONAL_ACCESS_TOKEN` in `.env.local`, then run
-  `npm run create-space` followed by `npm run seed`. Only needed if the existing
-  space cannot be transferred.
+Content is edited in the space's **Visual Editor** — no code changes needed for
+pages, products, categories, articles, or navigation.
 
-The free **Community** plan is sufficient for one space and this catalog.
+The free **Community** plan is sufficient for one space and this catalog. The
+developer's original space remains as a temporary read-only backup and will be
+retired after the migration has proven stable (~30 days).
 
 ### 1.4 Supabase (database — quote requests, admin login, assistant data)
 
@@ -359,10 +357,12 @@ Ask the current developer (Julian) to hand over, via a password manager or other
 secure channel — **not** plain email:
 
 - The GitHub repository (ownership transfer)
-- The Storyblok space (ownership transfer) or its tokens
 - The existing Supabase project (Organization → transfer) **or** confirmation that
   you should create a fresh one (Phase 1.4 recreates the schema either way)
 - Any existing `.env.local` values that are still valid
+
+(The Storyblok space needs no handover — the content already lives in a space
+under your own account; see 1.3.)
 
 ## Appendix B — Expected running costs
 
