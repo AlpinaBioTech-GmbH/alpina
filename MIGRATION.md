@@ -50,11 +50,13 @@ contractor. Store every key in a password manager as you go.
 
 ### 1.1 GitHub (code hosting)
 
-1. Create a GitHub account/organization for the company: <https://github.com/signup>.
-2. Have the developer **transfer this repository** to your account
-   (GitHub → repo → Settings → Transfer ownership), or push it to a new **private**
-   repository you own.
-3. You will come back to this repo in Phase 5 to set the article-pipeline secrets.
+The code already lives in the company's own GitHub organization:
+**`AlpinaBioTech-GmbH/alpina`** (private). Nothing to transfer.
+
+1. Manage who can access it under the org's People/Teams settings — invite any
+   collaborators (e.g. the developer) with the role you're comfortable with.
+2. The article-pipeline secrets and variables are already configured on the repo
+   (Settings → Secrets and variables → Actions); Phase 5 lists what they are.
 
 ### 1.2 Vercel (hosting)
 
@@ -322,9 +324,11 @@ for the domain until the transfer.
    (same value as Vercel). Set the repository **variable** `NEXT_PUBLIC_SITE_URL`.
    It runs Mon/Wed/Fri automatically; trigger a manual run from the Actions tab to
    verify.
-   - For the admin "Run pipeline now" button, also set `GITHUB_REPO=owner/repo` and a
-     fine-grained GitHub token with Actions read/write as `GITHUB_DISPATCH_TOKEN` in
-     Vercel.
+   - For the admin "Run pipeline now" button, also set
+     `GITHUB_REPO=AlpinaBioTech-GmbH/alpina` and a fine-grained GitHub token with
+     Actions read/write as `GITHUB_DISPATCH_TOKEN` in Vercel. The token must be
+     issued under the **AlpinaBioTech-GmbH** organization (a token scoped to a
+     different owner will not work).
 3. **Update `NEXT_PUBLIC_SITE_URL`** in Vercel to `https://alpinabiotech.com` if it
    isn't already, and redeploy.
 4. **Google Search Console**: add the domain property (or update the existing one)
@@ -356,13 +360,13 @@ nothing once subscriptions are off.
 Ask the current developer (Julian) to hand over, via a password manager or other
 secure channel — **not** plain email:
 
-- The GitHub repository (ownership transfer)
 - The existing Supabase project (Organization → transfer) **or** confirmation that
   you should create a fresh one (Phase 1.4 recreates the schema either way)
 - Any existing `.env.local` values that are still valid
 
-(The Storyblok space needs no handover — the content already lives in a space
-under your own account; see 1.3.)
+(The GitHub repository and the Storyblok space need no handover — the code is
+already in your `AlpinaBioTech-GmbH` organization and the content lives in a
+space under your own account; see 1.1 and 1.3.)
 
 ## Appendix B — Expected running costs
 
