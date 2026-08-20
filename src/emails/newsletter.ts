@@ -6,6 +6,7 @@
 //   broadcast - the real send; must contain Resend's unsubscribe merge tag.
 //   copy      - the info@ copy / dry-run preview; inert unsubscribe link.
 import { brand } from "@/lib/config";
+import { siteUrl } from "@/lib/site";
 import type { DigestArticle } from "@/lib/newsletter/digest";
 
 const PAPER = "#f8fafe"; // --background
@@ -64,7 +65,7 @@ function articleCard(a: DigestArticle): string {
       <h2 style="margin:0 0 8px;font-family:${SANS};font-weight:600;font-size:19px;line-height:1.35"><a href="${esc(a.url)}" style="color:${INK};text-decoration:none">${esc(a.title)}</a></h2>
       <div style="font-family:${MONO};font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:${INK2};margin:0 0 10px">${esc(articleDate(a.date))}</div>
       <p style="margin:0 0 12px;font-family:${SANS};font-size:14px;line-height:1.65;color:${INK}">${esc(a.teaser)}</p>
-      <a href="${esc(a.url)}" style="font-family:${MONO};font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:${SIGNAL};text-decoration:none">Read the article &rarr;</a>
+      <a href="${esc(a.url)}" style="font-family:${MONO};font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:${SIGNAL};text-decoration:none">Read the article <img src="${siteUrl()}/email/arrow-right.png" width="14" height="14" alt="" style="vertical-align:-2px;border:0"/></a>
     </div>
   </td></tr>`;
 }

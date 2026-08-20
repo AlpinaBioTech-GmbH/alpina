@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { getSentIssueBySlug, listIssues } from "@/lib/newsletter/issue";
 import { periodLabel } from "@/lib/newsletter/digest";
 
@@ -118,10 +119,10 @@ export default async function NewsletterIssuePage({
                 </p>
                 <Link
                   href={a.url}
-                  className="mt-3 inline-block text-xs uppercase tracking-[0.1em]"
+                  className="mt-3 inline-flex items-center gap-1.5 text-xs uppercase tracking-[0.1em]"
                   style={{ fontFamily: "var(--font-mono)", color: "var(--signal)" }}
                 >
-                  Read the article &rarr;
+                  Read the article <ArrowRight size={14} />
                 </Link>
               </div>
             ))}
@@ -139,15 +140,21 @@ export default async function NewsletterIssuePage({
               style={{ borderColor: "var(--hair)" }}
             >
               {older ? (
-                <Link href={`/newsletter/${older.slug}`} className="hover:text-[var(--signal)]">
-                  &larr; {periodLabel(older.period)}
+                <Link
+                  href={`/newsletter/${older.slug}`}
+                  className="inline-flex items-center gap-1.5 hover:text-[var(--signal)]"
+                >
+                  <ArrowLeft size={14} /> {periodLabel(older.period)}
                 </Link>
               ) : (
                 <span />
               )}
               {newer ? (
-                <Link href={`/newsletter/${newer.slug}`} className="hover:text-[var(--signal)]">
-                  {periodLabel(newer.period)} &rarr;
+                <Link
+                  href={`/newsletter/${newer.slug}`}
+                  className="inline-flex items-center gap-1.5 hover:text-[var(--signal)]"
+                >
+                  {periodLabel(newer.period)} <ArrowRight size={14} />
                 </Link>
               ) : (
                 <span />
