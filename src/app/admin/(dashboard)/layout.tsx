@@ -52,6 +52,7 @@ export default async function AdminDashboardLayout({
       label: "Audience",
       items: [
         { href: "/admin/submissions", label: "Submissions" },
+        { href: "/admin/newsletter", label: "Newsletter", configured: f.newsletter },
         { href: "/admin/visitors", label: "Visitors" },
       ],
     },

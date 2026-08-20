@@ -19,7 +19,10 @@
     "configure-assistant": "tsx scripts/configure-assistant.ts",
     "sync-kb": "tsx scripts/sync-kb.ts",
     "seed-feeds": "tsx scripts/seed-feeds.ts",
-    "push-articles": "tsx scripts/push-articles.ts"
+    "push-articles": "tsx scripts/push-articles.ts",
+    "setup-newsletter": "tsx scripts/setup-newsletter.ts",
+    "backfill-newsletter": "tsx scripts/backfill-newsletter-contacts.ts",
+    "send-newsletter": "tsx scripts/send-newsletter.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.105.0",

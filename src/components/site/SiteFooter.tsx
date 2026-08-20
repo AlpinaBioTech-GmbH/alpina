@@ -46,7 +46,11 @@ export default function SiteFooter({ config }: { config?: GlobalConfig | null })
               Stay in the loop
             </p>
             <p className="mt-1 text-sm">
-              Occasional updates, straight to your inbox.
+              A monthly digest of our latest articles, straight to your inbox.{" "}
+              <Link href="/newsletter" className="underline underline-offset-2 hover:text-[var(--signal)]">
+                Browse past issues
+              </Link>
+              .
             </p>
           </div>
           <NewsletterForm />

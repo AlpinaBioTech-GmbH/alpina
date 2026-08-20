@@ -7,6 +7,7 @@ export type Features = {
   assistant: boolean; // Anthropic chat
   voyage: boolean; // RAG embeddings
   email: boolean; // Resend
+  newsletter: boolean; // monthly digest (Resend segment configured)
   storyblokWrite: boolean; // article publishing
   articles: boolean; // writer pipeline (needs Anthropic + Storyblok mgmt)
   linkedin: boolean;
@@ -28,6 +29,7 @@ export function features(): Features {
     assistant: anthropic,
     voyage: !!process.env.VOYAGE_API_KEY,
     email: !!process.env.RESEND_API_KEY,
+    newsletter: !!process.env.RESEND_API_KEY && !!process.env.NEWSLETTER_RESEND_SEGMENT_ID,
     storyblokWrite,
     articles: anthropic && storyblokWrite,
     linkedin: !!process.env.LINKEDIN_CLIENT_ID,

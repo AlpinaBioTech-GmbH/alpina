@@ -30,6 +30,7 @@ type SubscriberRow = {
   id: string;
   created_at: string;
   email: string;
+  status: string;
 };
 
 function fmtDate(iso: string) {
@@ -57,7 +58,7 @@ export default async function SubmissionsPage() {
         .limit(200),
       supabase
         .from("newsletter_subscribers")
-        .select("id, created_at, email")
+        .select("id, created_at, email, status")
         .order("created_at", { ascending: false })
         .limit(500),
     ]);
@@ -158,6 +159,7 @@ export default async function SubmissionsPage() {
                   <tr>
                     <th className="px-3 py-2 font-medium">Date</th>
                     <th className="px-3 py-2 font-medium">Email</th>
+                    <th className="px-3 py-2 font-medium">Status</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y">
@@ -173,6 +175,13 @@ export default async function SubmissionsPage() {
                         >
                           {row.email}
                         </a>
+                      </td>
+                      <td className="px-3 py-2">
+                        {row.status === "unsubscribed" ? (
+                          <Badge variant="outline">unsubscribed</Badge>
+                        ) : (
+                          <span className="text-muted-foreground">subscribed</span>
+                        )}
                       </td>
                     </tr>
                   ))}
