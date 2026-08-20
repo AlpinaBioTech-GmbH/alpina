@@ -6,6 +6,9 @@
 //                                        (info@ only); no newsletter_issues row
 //   npm run send-newsletter -- --force   the REAL send path for the previous
 //                                        month (period uniqueness still applies)
+//   npm run send-newsletter -- --archive historical backfill: compose + store
+//                                        the issue as sent WITHOUT any email or
+//                                        broadcast (archive page only)
 //   ... -- --period=2026-07-01           override the covered month
 import "./env";
 import { writeFileSync } from "node:fs";
@@ -20,6 +23,7 @@ import { issueArchiveUrl, previousSentIssue } from "@/lib/newsletter/issue";
 import { composeAndSendIssue } from "@/lib/newsletter/send";
 import { renderDigestEmail } from "@/emails/newsletter";
 import { getResendClient } from "@/lib/newsletter/resend";
+import { getSupabaseAdmin } from "@/lib/supabase/service";
 import { brand } from "@/lib/config";
 
 const args = process.argv.slice(2);
@@ -66,6 +70,36 @@ async function main() {
   console.log(`preview:  ${intro.preview_text}`);
   console.log(`intro:\n${intro.intro_paragraphs.map((p) => `  ${p}`).join("\n")}`);
   if (intro.closing_line) console.log(`closing:  ${intro.closing_line}`);
+
+  if (has("--archive")) {
+    // Historical backfill: store the issue as sent with no broadcast and no
+    // email. sent_at is backdated to the first Tuesday after the covered month
+    // (the date the automation would have sent it).
+    const db = getSupabaseAdmin();
+    if (!db) throw new Error("Supabase not configured.");
+    const [y, m] = period.split("-").map(Number);
+    const next = new Date(Date.UTC(m === 12 ? y + 1 : y, m === 12 ? 0 : m, 1, 7));
+    while (next.getUTCDay() !== 2) next.setUTCDate(next.getUTCDate() + 1);
+    const { html } = render("copy");
+    const { error } = await db.from("newsletter_issues").insert({
+      period,
+      slug: periodSlug(period),
+      status: "sent",
+      title: `${brand.name} Digest - ${label}`,
+      subject: intro.subject,
+      preview_text: intro.preview_text,
+      content: { intro_paragraphs: intro.intro_paragraphs, closing_line: intro.closing_line, articles },
+      email_html: html,
+      model,
+      article_count: articles.length,
+      sent_at: next.toISOString(),
+      audience_size_at_send: 0,
+      notes: "Historical issue: archived without an email send.",
+    });
+    if (error) throw new Error(`Issue insert failed: ${error.message}`);
+    console.log(`\nArchived ${label} as a historical issue (no email sent): /newsletter/${periodSlug(period)}`);
+    return;
+  }
 
   if (has("--test")) {
     const segmentId = process.env.NEWSLETTER_TEST_SEGMENT_ID?.trim();
