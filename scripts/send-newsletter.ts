@@ -105,12 +105,13 @@ async function main() {
     const segmentId = process.env.NEWSLETTER_TEST_SEGMENT_ID?.trim();
     const resend = getResendClient();
     if (!segmentId || !resend) throw new Error("Missing NEWSLETTER_TEST_SEGMENT_ID or RESEND_API_KEY.");
-    const { html } = render("broadcast");
+    const { html, text } = render("broadcast");
     const created = await resend.broadcasts.create({
       segmentId,
       from: process.env.NEWSLETTER_FROM?.trim() || brand.contact.from,
       subject: `[TEST] ${intro.subject}`,
       html,
+      text,
       name: `TEST ${label}`,
       previewText: intro.preview_text,
     });

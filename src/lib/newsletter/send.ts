@@ -89,6 +89,28 @@ async function sendAdminCopy(subject: string, html: string, audienceSize: number
   }
 }
 
+/**
+ * Rebuild the plain-text alternative from the issue's structured content.
+ * Multipart (HTML + text) broadcasts score better with spam filters; the text
+ * is deterministic, so regenerating on retry matches the original send.
+ */
+async function issueText(issue: NewsletterIssue): Promise<string | undefined> {
+  if (!issue.content) return undefined;
+  const prev = await previousSentIssue(issue.period);
+  const { text } = renderDigestEmail({
+    title: issue.title,
+    monthLabel: periodLabel(issue.period),
+    introParagraphs: issue.content.intro_paragraphs,
+    closingLine: issue.content.closing_line,
+    articles: issue.content.articles,
+    previewText: issue.preview_text ?? "",
+    mode: "broadcast",
+    archiveUrl: issueArchiveUrl(issue),
+    previousIssue: prev ? { title: prev.title, url: issueArchiveUrl(prev) } : null,
+  });
+  return text;
+}
+
 /** Create (if needed) and send the broadcast for an issue row. */
 async function dispatchBroadcast(issue: NewsletterIssue): Promise<SendResult> {
   const resend = getResendClient();
@@ -104,6 +126,7 @@ async function dispatchBroadcast(issue: NewsletterIssue): Promise<SendResult> {
       replyTo: brand.contact.email,
       subject: issue.subject,
       html: issue.email_html,
+      text: await issueText(issue),
       name: issue.title,
       previewText: issue.preview_text ?? undefined,
     });
