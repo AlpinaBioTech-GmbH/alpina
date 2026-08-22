@@ -11,9 +11,10 @@ import type { RunTrigger } from "@/lib/runs";
 export const dynamic = "force-dynamic";
 export const maxDuration = 300;
 
-// The cron fires once a day (vercel.json, 14:00 UTC) and each platform posts
-// on that invocation. dailySlotDecision only guards against a second run on the
-// same UTC day (manual cron re-trigger or replayed redeploy).
+// The cron fires once a week (vercel.json, Tuesdays 07:15 UTC ~ 09:15 Berlin)
+// and each platform posts on that invocation. dailySlotDecision only guards
+// against a second run on the same UTC day (manual re-trigger or replayed
+// redeploy); the weekly cadence comes purely from the cron schedule.
 
 type Runner = (trigger: RunTrigger) => Promise<{ ok: boolean; status: string; reason?: string }>;
 

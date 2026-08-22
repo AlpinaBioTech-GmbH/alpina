@@ -4,7 +4,7 @@
   "devCommand": "npm run dev:http",
   "installCommand": "npm install",
   "crons": [
-    { "path": "/api/cron/post-social", "schedule": "0 14 * * *" },
+    { "path": "/api/cron/post-social", "schedule": "15 7 * * 2" },
     { "path": "/api/cron/send-newsletter", "schedule": "0 7 * * 2" }
   ]
 }
