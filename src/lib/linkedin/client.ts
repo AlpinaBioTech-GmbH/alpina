@@ -59,7 +59,7 @@ export function linkedinAccount(kind: LinkedinAccountKind = "organization"): Lin
 function apiVersion(): string {
   // LinkedIn sunsets API versions ~12 months after release (426
   // NONEXISTENT_VERSION); bump this default when that happens.
-  return process.env.LINKEDIN_VERSION ?? "202606";
+  return process.env.LINKEDIN_VERSION ?? "202608";
 }
 
 function restHeaders(accessToken: string): Record<string, string> {
