@@ -9,16 +9,16 @@ import type { Connection, PostRow } from "@/lib/admin/types";
 const COPY: Record<Provider, { title: string; description: string }> = {
   linkedin: {
     title: "LinkedIn",
-    description: "Daily auto-posting, previews, and the post log for the LinkedIn page.",
+    description: "Weekly auto-posting (Tuesdays), previews, and the post log for the LinkedIn page.",
   },
   twitter: {
     title: "X (Twitter)",
-    description: "Daily auto-posting, previews, and the post log for the X account.",
+    description: "Weekly auto-posting (Tuesdays), previews, and the post log for the X account.",
   },
   instagram: {
     title: "Instagram",
     description:
-      "Daily branded carousels (1080×1350, dark typographic slides) with a link-in-bio CTA.",
+      "Weekly branded carousels (Tuesdays) (1080×1350, dark typographic slides) with a link-in-bio CTA.",
   },
 };
 

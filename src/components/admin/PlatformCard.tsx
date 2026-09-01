@@ -95,7 +95,7 @@ export function PlatformCard({
             <>
               <Label className="flex items-center gap-2 text-sm font-normal">
                 <Switch checked={auto} onCheckedChange={toggleAuto} />
-                Daily auto-post
+                Weekly auto-post (Tuesdays)
               </Label>
               <ActionButton
                 action={() => generateAndPostNow(provider)}
