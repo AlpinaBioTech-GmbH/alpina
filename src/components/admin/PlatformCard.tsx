@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { ActionButton } from "@/components/admin/ActionButton";
 import { PreviewDialog } from "@/components/admin/PreviewDialog";
+import { LinkedinOrgSelector } from "@/components/admin/LinkedinOrgSelector";
 import {
   disconnectPlatform,
   generateAndPostNow,
@@ -86,6 +87,9 @@ export function PlatformCard({
             <span className="text-muted-foreground">Not connected.</span>
           )}
         </p>
+        {provider === "linkedin" && connection && (
+          <LinkedinOrgSelector current={connection.author_urn} />
+        )}
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
           {connection ? (
             <>

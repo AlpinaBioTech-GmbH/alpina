@@ -71,6 +71,77 @@ function restHeaders(accessToken: string): Record<string, string> {
   };
 }
 
+// Optional deterministic org pin. When set, connecting (or reconnecting) always
+// resolves to this page instead of whatever LinkedIn happens to return first,
+// which matters when the connecting member administers more than one page.
+// Accepts a bare numeric id ("104585440") or a full "urn:li:organization:..." .
+function configuredOrgUrn(): string | null {
+  const raw = process.env.LINKEDIN_ORG_ID?.trim();
+  if (!raw) return null;
+  return raw.startsWith("urn:li:organization:") ? raw : `urn:li:organization:${raw}`;
+}
+
+export interface LinkedinOrg {
+  urn: string;
+  id: string;
+  name: string;
+}
+
+// Best-effort human names for the administered orgs. Failure degrades to a
+// URN-derived label; it never blocks connecting or switching.
+async function fetchOrgNames(
+  accessToken: string,
+  ids: string[],
+): Promise<Record<string, string>> {
+  if (ids.length === 0) return {};
+  try {
+    const res = await fetch(
+      `${API_BASE}/rest/organizations?ids=List(${ids.join(",")})&fields=id,localizedName,vanityName`,
+      { headers: restHeaders(accessToken) },
+    );
+    if (!res.ok) return {};
+    const data = await res.json();
+    const results = (data.results ?? {}) as Record<
+      string,
+      { localizedName?: string; vanityName?: string }
+    >;
+    const names: Record<string, string> = {};
+    for (const id of ids) {
+      const r = results[id];
+      const name = r?.localizedName || r?.vanityName;
+      if (name) names[id] = name;
+    }
+    return names;
+  } catch {
+    return {};
+  }
+}
+
+/**
+ * Every LinkedIn page the access token's member is an APPROVED ADMINISTRATOR of,
+ * with a best-effort display name. This is the same organizationAcls call
+ * discoverAuthor relies on, exposed so the admin UI can offer a page selector.
+ */
+export async function listAdminOrganizations(accessToken: string): Promise<LinkedinOrg[]> {
+  const res = await fetch(
+    `${API_BASE}/rest/organizationAcls?q=roleAssignee&role=ADMINISTRATOR&state=APPROVED`,
+    { headers: restHeaders(accessToken) },
+  );
+  if (!res.ok) {
+    throw new Error(`LinkedIn organizationAcls failed (${res.status}): ${await res.text()}`);
+  }
+  const data = await res.json();
+  const urns: string[] = (data.elements ?? [])
+    .map((el: { organization?: string }) => el.organization)
+    .filter((u: unknown): u is string => typeof u === "string" && u.length > 0);
+  const ids = urns.map((u) => u.split(":").pop() as string);
+  const names = await fetchOrgNames(accessToken, ids);
+  return urns.map((urn) => {
+    const id = urn.split(":").pop() as string;
+    return { urn, id, name: names[id] || `Organization ${id}` };
+  });
+}
+
 export interface LinkedinConnection {
   accessToken: string;
   authorUrn: string;
@@ -206,21 +277,25 @@ export async function discoverAuthor(
     const me = await res.json();
     return { authorUrn: `urn:li:person:${me.sub}`, displayName: me.name ?? null };
   }
-  const res = await fetch(
-    `${API_BASE}/rest/organizationAcls?q=roleAssignee&role=ADMINISTRATOR&state=APPROVED`,
-    { headers: restHeaders(accessToken) },
-  );
-  if (!res.ok) {
-    throw new Error(`LinkedIn organizationAcls failed (${res.status}): ${await res.text()}`);
-  }
-  const data = await res.json();
-  const orgUrn: string | undefined = data.elements?.[0]?.organization;
-  if (!orgUrn) {
+  const orgs = await listAdminOrganizations(accessToken);
+  if (orgs.length === 0) {
     throw new Error(
       `No administered LinkedIn organization found — the connecting member must be an approved admin of the ${brand.name} company page.`,
     );
   }
-  return { authorUrn: orgUrn, displayName: `Organization ${orgUrn.split(":").pop()}` };
+  // With LINKEDIN_ORG_ID set, always resolve to that page. Otherwise take the
+  // first page LinkedIn returns; when the member administers several, the admin
+  // UI's page selector lets them switch (setLinkedinOrg) without a redeploy.
+  const pinned = configuredOrgUrn();
+  const chosen = pinned ? orgs.find((o) => o.urn === pinned) : orgs[0];
+  if (pinned && !chosen) {
+    throw new Error(
+      `LINKEDIN_ORG_ID (${pinned}) is not one of your administered pages: ${orgs
+        .map((o) => `${o.name} (${o.id})`)
+        .join("; ")}`,
+    );
+  }
+  return { authorUrn: chosen!.urn, displayName: chosen!.name };
 }
 
 export async function saveCredentials(

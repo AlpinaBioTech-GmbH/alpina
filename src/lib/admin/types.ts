@@ -8,6 +8,13 @@ export interface Connection {
   expires_at: string | null;
 }
 
+/** A LinkedIn page the connected member administers, for the admin page selector. */
+export interface LinkedinOrgOption {
+  urn: string;
+  id: string;
+  name: string;
+}
+
 export interface PostRow {
   id: string;
   status: string;

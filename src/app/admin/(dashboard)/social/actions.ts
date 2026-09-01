@@ -5,6 +5,8 @@ import { requireAdmin } from "@/lib/supabase/admin-auth";
 import { serviceClient } from "@/lib/supabase/service";
 import type { ActionResult } from "@/lib/admin/action-result";
 import type { RunAttempt } from "@/lib/runs";
+import { getConnection, listAdminOrganizations } from "@/lib/linkedin/client";
+import type { LinkedinOrgOption } from "@/lib/admin/types";
 import {
   runDailyPost,
   previewPost,
@@ -265,6 +267,54 @@ export async function publishPreviewed(
           : await publishComposedIg(JSON.parse(payloadJson) as InstagramCandidate);
     revalidatePath(`/admin/${provider}`);
     return mapResult(result);
+  } catch (err) {
+    return errorResult(err);
+  }
+}
+
+// When the connecting member administers more than one company page, the org
+// connection defaults to whichever LinkedIn returns first. These let the admin
+// UI list the administered pages and switch which one posts.
+export async function getLinkedinOrgOptions(): Promise<{
+  ok: boolean;
+  message?: string;
+  orgs?: LinkedinOrgOption[];
+  current?: string | null;
+}> {
+  await requireAdmin();
+  try {
+    const conn = await getConnection();
+    if (!conn) return { ok: false, message: "LinkedIn is not connected." };
+    const orgs = await listAdminOrganizations(conn.accessToken);
+    return { ok: true, orgs, current: conn.authorUrn };
+  } catch (err) {
+    return errorResult(err);
+  }
+}
+
+export async function setLinkedinOrg(orgUrn: string): Promise<ActionResult> {
+  await requireAdmin();
+  try {
+    const db = serviceClient();
+    if (!db) return { ok: false, message: "Supabase not configured" };
+    const conn = await getConnection();
+    if (!conn) return { ok: false, message: "LinkedIn is not connected." };
+    // Re-fetch the administered pages so we only ever store a page the member
+    // actually admins (guards against a stale or spoofed urn from the client).
+    const orgs = await listAdminOrganizations(conn.accessToken);
+    const match = orgs.find((o) => o.urn === orgUrn);
+    if (!match) return { ok: false, message: "That organization is not one you administer." };
+    const { error } = await db
+      .from("social_credentials")
+      .update({
+        author_urn: match.urn,
+        display_name: match.name,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("provider", "linkedin");
+    if (error) return { ok: false, message: error.message };
+    revalidatePath("/admin/linkedin");
+    return { ok: true, message: `LinkedIn page set to ${match.name}.` };
   } catch (err) {
     return errorResult(err);
   }
