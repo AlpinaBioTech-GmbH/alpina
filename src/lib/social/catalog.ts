@@ -75,7 +75,9 @@ async function fetchArticleItems(): Promise<CatalogItem[]> {
         id: story.uuid,
         slug: story.full_slug,
         title: String(c.title || story.name),
-        summary: genericSummary(c),
+        // The article schema is this repo's own (publishArticle/push-articles
+        // write `teaser`); genericSummary stays the fallback for unknown types.
+        summary: String(c.teaser ?? "").trim() || genericSummary(c),
         url: `${site}/${story.full_slug}`,
         tags: Array.isArray(c.tags) ? (c.tags as string[]).slice(0, 6) : [],
       };
