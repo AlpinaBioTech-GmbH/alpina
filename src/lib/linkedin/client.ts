@@ -117,6 +117,76 @@ async function fetchOrgNames(
   }
 }
 
+// --- administered-orgs cache -------------------------------------------------
+// Both organizationAcls and the organizations name lookup carry small
+// APPLICATION DAY quotas; page names essentially never change. The admin
+// selector therefore reads through a 24h cache stored on the credentials row
+// (social_credentials.meta.orgs) and serves stale data when LinkedIn throttles.
+
+const ORG_CACHE_MAX_AGE_MS = 24 * 3600_000;
+
+type OrgCache = { orgs: LinkedinOrg[]; fetchedAt: string; namesResolved: boolean };
+
+function isFallbackName(o: LinkedinOrg): boolean {
+  return o.name === `Organization ${o.id}`;
+}
+
+async function readOrgCache(): Promise<OrgCache | null> {
+  const db = serviceClient();
+  if (!db) return null;
+  const { data } = await db
+    .from("social_credentials")
+    .select("meta")
+    .eq("provider", "linkedin")
+    .maybeSingle();
+  const cache = (data?.meta as { orgs?: OrgCache } | null)?.orgs;
+  return cache && Array.isArray(cache.orgs) ? cache : null;
+}
+
+async function writeOrgCache(cache: OrgCache): Promise<void> {
+  const db = serviceClient();
+  if (!db) return;
+  const { data } = await db
+    .from("social_credentials")
+    .select("meta")
+    .eq("provider", "linkedin")
+    .maybeSingle();
+  const meta = { ...((data?.meta as Record<string, unknown> | null) ?? {}), orgs: cache };
+  await db.from("social_credentials").update({ meta }).eq("provider", "linkedin");
+}
+
+/**
+ * listAdminOrganizations through the cache: fresh resolved names are served
+ * from the DB; a live fetch that loses the name lookup to throttling borrows
+ * cached names; a fully throttled live fetch degrades to the stale cache.
+ */
+export async function listAdminOrganizationsCached(accessToken: string): Promise<LinkedinOrg[]> {
+  const cached = await readOrgCache();
+  const fresh =
+    cached &&
+    cached.namesResolved &&
+    Date.now() - new Date(cached.fetchedAt).getTime() < ORG_CACHE_MAX_AGE_MS;
+  if (cached && fresh) return cached.orgs;
+
+  try {
+    const live = await listAdminOrganizations(accessToken);
+    const merged = live.map((o) => {
+      if (!isFallbackName(o)) return o;
+      const prev = cached?.orgs.find((c) => c.urn === o.urn);
+      return prev && !isFallbackName(prev) ? { ...o, name: prev.name } : o;
+    });
+    await writeOrgCache({
+      orgs: merged,
+      fetchedAt: new Date().toISOString(),
+      namesResolved: merged.every((o) => !isFallbackName(o)),
+    });
+    return merged;
+  } catch (err) {
+    if (cached) return cached.orgs; // throttled: stale beats numbers-only
+    throw err;
+  }
+}
+
 /**
  * Every LinkedIn page the access token's member is an APPROVED ADMINISTRATOR of,
  * with a best-effort display name. This is the same organizationAcls call

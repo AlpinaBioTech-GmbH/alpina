@@ -5,7 +5,7 @@ import { requireAdmin } from "@/lib/supabase/admin-auth";
 import { serviceClient } from "@/lib/supabase/service";
 import type { ActionResult } from "@/lib/admin/action-result";
 import type { RunAttempt } from "@/lib/runs";
-import { getConnection, listAdminOrganizations } from "@/lib/linkedin/client";
+import { getConnection, listAdminOrganizationsCached } from "@/lib/linkedin/client";
 import type { LinkedinOrgOption } from "@/lib/admin/types";
 import {
   runDailyPost,
@@ -285,7 +285,7 @@ export async function getLinkedinOrgOptions(): Promise<{
   try {
     const conn = await getConnection();
     if (!conn) return { ok: false, message: "LinkedIn is not connected." };
-    const orgs = await listAdminOrganizations(conn.accessToken);
+    const orgs = await listAdminOrganizationsCached(conn.accessToken);
     return { ok: true, orgs, current: conn.authorUrn };
   } catch (err) {
     return errorResult(err);
@@ -301,7 +301,7 @@ export async function setLinkedinOrg(orgUrn: string): Promise<ActionResult> {
     if (!conn) return { ok: false, message: "LinkedIn is not connected." };
     // Re-fetch the administered pages so we only ever store a page the member
     // actually admins (guards against a stale or spoofed urn from the client).
-    const orgs = await listAdminOrganizations(conn.accessToken);
+    const orgs = await listAdminOrganizationsCached(conn.accessToken);
     const match = orgs.find((o) => o.urn === orgUrn);
     if (!match) return { ok: false, message: "That organization is not one you administer." };
     const { error } = await db
