@@ -8,3 +8,16 @@ export function isAuthorizedCron(req: Request): boolean {
   if (!secret) return false;
   return req.headers.get("authorization") === `Bearer ${secret}`;
 }
+
+/**
+ * Berlin-local Tuesday check. Vercel cron expressions are advisory on this
+ * team (invocations observed near-daily at drifting times), so every weekly
+ * route enforces its own cadence with this guard.
+ */
+export function isBerlinTuesday(now: Date = new Date()): boolean {
+  const weekday = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Europe/Berlin",
+    weekday: "short",
+  }).format(now);
+  return weekday === "Tue";
+}

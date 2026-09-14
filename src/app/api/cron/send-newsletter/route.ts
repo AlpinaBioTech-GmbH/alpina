@@ -6,7 +6,7 @@
 //   ?dry=1    compose only (no DB writes, no send), returns the HTML
 //   ?force=1  bypass the first-Tuesday window (not the period uniqueness)
 import { NextResponse, type NextRequest } from "next/server";
-import { isAuthorizedCron } from "@/lib/cron";
+import { isAuthorizedCron, isBerlinTuesday } from "@/lib/cron";
 import {
   berlinDayOfMonth,
   fetchDigestArticles,
@@ -54,7 +54,9 @@ export async function GET(req: NextRequest) {
     return NextResponse.json({ period, label, articleCount: articles.length, model, ...intro, html });
   }
 
-  if (!force && berlinDayOfMonth(now) > 7) {
+  // Both conditions matter: Vercel's schedule is advisory on this team (cron
+  // invocations arrive near-daily), so the weekday must be checked here too.
+  if (!force && (!isBerlinTuesday(now) || berlinDayOfMonth(now) > 7)) {
     return NextResponse.json({ outcome: "skipped", reason: "not-first-tuesday", period });
   }
 
