@@ -26,3 +26,7 @@ components, prompts, or migrations: read it from config. Theme tokens live in
 Every external integration (Anthropic, Voyage, social platforms, Mux, Resend) is
 optional. Getters return `null` or skip when env vars are absent, and the admin sidebar
 disables sections whose env is missing. Never throw at import time for a missing key.
+
+## Supabase CLI
+
+Supabase CLI 3.x (Homebrew, since 3 Nov 2026) targets the **local** database by default. Push migrations to the hosted project with `supabase db push --remote` (not `--linked`, the flag the 2.x warning named). Run it from the linked checkout, the one that has `supabase/.temp/`; git worktrees carry no link, so `supabase link` or the original checkout is needed there. In Claude Code sessions the push is run by Julian with the `!` prefix (the auto-mode classifier blocks it for the agent).
